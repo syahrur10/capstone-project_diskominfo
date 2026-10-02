@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@500;600;700&display=swap');
+
+/* base.css — variabel warna (diambil dari logo sekolah), tipografi, reset */
+:root {
+  --navy: #12306b;        /* biru laut pada logo */
+  --navy-deep: #0b1f4a;
+  --sun: #f7b500;         /* kuning latar logo */
+  --orange: #f28500;      /* oranye website lama */
+  --red: #d7263d;         /* merah ikon tugu */
+  --cream: #fff9eb;
+  --sky: #e8f1ff;
+  --ink: #1b2437;
+  --muted: #5b6579;
+  --white: #fff;
+
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --font-head: 'Fredoka', 'Nunito', sans-serif;
+
+  --radius: 14px;
+  --shadow: 0 20px 40px rgba(18, 48, 107, 0.08);
+  --ease: all 0.3s ease;
+  --section-pad: 4.5rem;
+  --container: 1180px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--ink); background: var(--cream); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; transition: var(--ease); }
+ul { list-style: none; }
+h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; color: var(--navy); font-weight: 600; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
+h3 { font-size: 1.25rem; }
+p { color: var(--muted); }
+.container { width: min(100% - 2.5rem, var(--container)); margin-inline: auto; }
+.section { padding-block: var(--section-pad); }
+.section.alt { background: var(--white); }
+.eyebrow { display: inline-block; font-weight: 800; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); margin-bottom: .6rem; }
+.section-head { max-width: 640px; margin-bottom: 2.5rem; }
+.section-head p { margin-top: .6rem; }
+.btn { display: inline-flex; align-items: center; gap: .5rem; padding: .85rem 1.6rem; border-radius: 12px; font-weight: 800; border: 2px solid transparent; cursor: pointer; font-family: inherit; font-size: 1rem; transition: var(--ease); }
+.btn-primary { background: var(--sun); color: var(--navy-deep); }
+.btn-primary:hover { background: var(--orange); color: #fff; transform: translateY(-2px); }
+.btn-ghost { border-color: rgba(255,255,255,.7); color: #fff; }
+.btn-ghost:hover { background: #fff; color: var(--navy); }
+.btn-navy { background: var(--navy); color: #fff; }
+.btn-navy:hover { background: var(--navy-deep); transform: translateY(-2px); }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
