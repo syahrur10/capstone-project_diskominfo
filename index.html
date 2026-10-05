@@ -4,66 +4,83 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Beranda | SDN Bandarharjo 02 Semarang</title>
-  <meta name="description" content="Website resmi SDN Bandarharjo 02 Semarang: profil, akademik, lomba, galeri, dan pengumuman sekolah.">
+  <meta name="description" content="Website resmi SDN Bandarharjo 02 Semarang: profil, akademik, lomba, galeri, kuis cerdas AI, dan pengumuman.">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/layout.css">
+  <link rel="stylesheet" href="/assets/css/effects.css">
   <link rel="stylesheet" href="/assets/css/pages.css">
 </head>
-<body data-page="home" data-root="">
+<body data-page="home">
+  <div id="preloader"><div class="pl-box"><img src="/assets/images/logo-sdn-bandarharjo-02.png" alt=""><p>Memuat SDN Bandarharjo 02…</p><div class="pl-bar"><i></i></div></div></div>
   <div id="site-header"></div>
   <main>
+    
+    <section class="hero" id="hero">
+      <div class="hero-bg"></div><div class="hero-overlay"></div><div data-hero-decor="full"></div>
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Selamat Datang di Website Resmi</span>
+          <h1 data-split>Belajar Seru, Tumbuh <em data-typed="Berkarakter|Ceria|Berprestasi|Kreatif">Berkarakter</em></h1>
+          <p>SDN Bandarharjo 02 Semarang — sekolah dasar negeri di Semarang Utara yang menumbuhkan generasi cerdas, santun, dan peduli lingkungan.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/pages/profil.html">Kenali Sekolah Kami</a>
+            <a class="btn btn-ghost" href="/pages/kuis.html">🧠 Main Kuis Cerdas</a>
+          </div>
+        </div>
+        <div class="hero-logo"><div class="logo-card" data-tilt><span class="badge b1">Semarang Utara</span><img src="/assets/images/logo-sdn-bandarharjo-02.png" alt="Logo SDN Bandarharjo 02 Semarang"><span class="badge b2">Sekolah Ceria ✨</span></div></div>
+      </div>
+      <div class="scroll-hint" aria-hidden="true"></div>
+    </section>
 
+    <div class="container"><div class="stats" data-render="stats"></div></div>
+    <div class="marquee" style="margin-top:5rem" data-render="marquee" aria-hidden="true"></div>
 
-<section class="hero"><div class="container hero-grid">
-  <div>
-    <span class="eyebrow" style="color:var(--sun)">Selamat Datang</span>
-    <h1>Belajar Ceria, <em>Berkarakter</em>, Berprestasi</h1>
-    <p>SDN Bandarharjo 02 Semarang — sekolah dasar negeri di Semarang Utara yang menumbuhkan generasi cerdas, santun, dan peduli lingkungan.</p>
-    <div class="hero-actions">
-      <a class="btn btn-primary" href="pages/profil.html">Kenali Sekolah Kami</a>
-      <a class="btn btn-ghost" href="pages/kontak.html">Hubungi Kami</a>
-    </div>
-  </div>
-  <div class="hero-logo"><img src="assets/images/logo-sdn-bandarharjo-02.png" alt="Logo SDN Bandarharjo 02 Semarang"></div>
-</div></section>
+    <section class="section blobs"><div class="container split">
+      <div class="photo-frame reveal reveal-left"><img src="/assets/images/sambutan.jpg" alt="Gedung SDN Bandarharjo 02" data-tilt><span class="badge">Selamat Datang! 👋</span></div>
+      <div class="reveal reveal-right">
+        <span class="eyebrow">Sambutan Kepala Sekolah</span>
+        <h2>Mendidik dengan <span class="hl">Hati</span>, Membangun Masa Depan</h2>
+        <p style="margin:1.2rem 0">Assalamu'alaikum Wr. Wb. Selamat datang di website resmi SDN Bandarharjo 02. Melalui website ini kami berharap informasi sekolah dapat diakses mudah oleh orang tua, siswa, dan masyarakat. Bersama, kita wujudkan lingkungan belajar yang aman, menyenangkan, dan berkarakter.</p>
+        <p><strong style="color:var(--navy)">Kepala SDN Bandarharjo 02</strong><br><small>(Ganti nama kepala sekolah di index.html)</small></p>
+      </div>
+    </div></section>
 
-<div class="container"><div class="stats" data-render="stats"></div></div>
+    <section class="section alt dots-bg"><div class="container">
+      <div class="section-head center"><span class="eyebrow">Mengapa Kami</span><h2>Lingkungan Belajar yang Menyenangkan</h2></div>
+      <div class="grid grid-3">
+        <div class="feature reveal" data-tilt><div class="icon">📚</div><h3>Pembelajaran Aktif</h3><p>Metode belajar kreatif dan menyenangkan sesuai kurikulum yang berlaku.</p></div>
+        <div class="feature reveal" data-tilt><div class="icon">🌱</div><h3>Pendidikan Karakter</h3><p>Pembiasaan sikap jujur, disiplin, santun, dan peduli lingkungan setiap hari.</p></div>
+        <div class="feature reveal" data-tilt><div class="icon">🏆</div><h3>Prestasi &amp; Ekstrakurikuler</h3><p>Wadah bakat siswa di bidang akademik, seni, dan olahraga.</p></div>
+      </div>
+    </div></section>
 
-<section class="section"><div class="container split">
-  <div class="sambutan-photo reveal">🏫</div>
-  <div class="reveal">
-    <span class="eyebrow">Sambutan Kepala Sekolah</span>
-    <h2>Mendidik dengan Hati, Membangun Masa Depan</h2>
-    <p style="margin:1rem 0">Assalamu'alaikum Wr. Wb. Selamat datang di website resmi SDN Bandarharjo 02. Melalui website ini kami berharap informasi sekolah dapat diakses mudah oleh orang tua, siswa, dan masyarakat. Bersama, kita wujudkan lingkungan belajar yang aman, menyenangkan, dan berkarakter.</p>
-    <p><strong style="color:var(--navy)">Kepala SDN Bandarharjo 02</strong><br><small>(Nama Kepala Sekolah — ganti di index.html)</small></p>
-  </div>
-</div></section>
+    <section class="section"><div class="container"><div class="quiz-promo reveal">
+      <span class="qs" style="top:12%;left:48%">⭐</span><span class="qs" style="bottom:14%;left:55%;animation-delay:-1s">🧩</span><span class="qs" style="top:18%;right:30%;animation-delay:-2s">🔢</span>
+      <div><span class="eyebrow" style="color:#fff">Baru! Dengan Teknologi AI</span><h2>Kuis Cerdas: Asah Otakmu!</h2>
+        <p>Soal berhitung, pola, dan logika yang menyesuaikan kemampuanmu secara otomatis. Kumpulkan bintang bersama Pak Hoot si burung hantu!</p>
+        <a class="btn btn-primary pulse" href="/pages/kuis.html">🚀 Ayo Main Sekarang</a></div>
+      <div class="owl">🦉</div>
+    </div></div></section>
 
-<section class="section alt"><div class="container">
-  <div class="section-head"><span class="eyebrow">Mengapa Kami</span><h2>Lingkungan Belajar yang Mendukung</h2></div>
-  <div class="grid grid-3">
-    <div class="feature reveal"><div class="icon">📚</div><h3>Pembelajaran Aktif</h3><p>Metode belajar kreatif dan menyenangkan sesuai kurikulum yang berlaku.</p></div>
-    <div class="feature reveal"><div class="icon">🌱</div><h3>Pendidikan Karakter</h3><p>Pembiasaan sikap jujur, disiplin, santun, dan peduli lingkungan setiap hari.</p></div>
-    <div class="feature reveal"><div class="icon">🏆</div><h3>Prestasi &amp; Ekstrakurikuler</h3><p>Wadah bakat siswa di bidang akademik, seni, dan olahraga.</p></div>
-  </div>
-</div></section>
+    <section class="section alt blobs"><div class="container">
+      <div class="section-head"><span class="eyebrow">Berita Terbaru</span><h2>Kabar dari Sekolah</h2></div>
+      <div class="grid grid-3" data-render="berita"></div>
+    </div></section>
 
-<section class="section"><div class="container">
-  <div class="section-head"><span class="eyebrow">Berita Terbaru</span><h2>Kabar dari Sekolah</h2></div>
-  <div class="grid grid-3" data-render="berita"></div>
-</div></section>
+    <section class="section" style="padding-inline:0"><div class="container section-head"><span class="eyebrow">Galeri</span><h2>Momen Seru di Sekolah</h2></div>
+      <div class="photo-strip" data-render="strip"></div></section>
 
-<section class="section alt"><div class="container">
-  <div class="section-head"><span class="eyebrow">Pengumuman</span><h2>Informasi Penting</h2></div>
-  <div data-render="pengumuman" data-limit="3"></div>
-  <a class="btn btn-navy" href="pages/pengumuman.html" style="margin-top:1rem">Semua Pengumuman</a>
-</div></section>
+    <section class="section alt"><div class="container">
+      <div class="section-head"><span class="eyebrow">Pengumuman</span><h2>Informasi Penting</h2></div>
+      <div data-render="pengumuman" data-limit="3"></div>
+      <a class="btn btn-navy" href="/pages/pengumuman.html" style="margin-top:1rem">Semua Pengumuman</a>
+    </div></section>
 
-<section class="section"><div class="container"><div class="cta-band reveal">
-  <div><h2>Ada pertanyaan atau masukan?</h2><p>Sampaikan lewat kotak pengaduan — kami siap mendengar.</p></div>
-  <a class="btn btn-primary" href="pages/kontak.html#pengaduan">Sampaikan Pengaduan</a>
-</div></div></section>
+    <section class="section"><div class="container"><div class="cta-band reveal">
+      <div><h2>Ada pertanyaan atau masukan?</h2><p>Sampaikan lewat kotak pengaduan — kami siap mendengar.</p></div>
+      <a class="btn btn-primary" href="/pages/kontak.html#pengaduan">Sampaikan Pengaduan</a>
+    </div></div></section>
   </main>
   <footer id="site-footer"></footer>
   <script type="module" src="/assets/js/main.js"></script>

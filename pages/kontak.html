@@ -8,32 +8,33 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/layout.css">
+  <link rel="stylesheet" href="/assets/css/effects.css">
   <link rel="stylesheet" href="/assets/css/pages.css">
 </head>
-<body data-page="kontak" data-root="../">
+<body data-page="kontak">
+  <div id="preloader"><div class="pl-box"><img src="/assets/images/logo-sdn-bandarharjo-02.png" alt=""><p>Memuat SDN Bandarharjo 02…</p><div class="pl-bar"><i></i></div></div></div>
   <div id="site-header"></div>
   <main>
-<section class="page-hero"><div class="container">
-  <div class="crumbs">Beranda / Kontak & Pengaduan</div><h1>Kontak & Pengaduan</h1><p>Kami senang mendengar dari Anda.</p></div></section>
-
-<section class="section"><div class="container contact-grid">
-  <div class="reveal"><span class="eyebrow">Kontak</span><h2>Kunjungi &amp; Hubungi Kami</h2>
-    <ul class="contact-list" style="margin-top:1.5rem">
-      <li><span class="ci">📍</span><div><b>Alamat</b><p>Jl. Lodan Raya No. 1, Kel. Bandarharjo, Kec. Semarang Utara, Kota Semarang 50175</p></div></li>
-      <li><span class="ci">☎</span><div><b>Telepon</b><p><a href="tel:0243563228">0243563228</a></p></div></li>
-      <li><span class="ci">✉</span><div><b>Email</b><p><a href="mailto:sdnbandarharjo02semarang@gmail.com">sdnbandarharjo02semarang@gmail.com</a></p></div></li>
-    </ul>
-    <iframe class="map" title="Peta SDN Bandarharjo 02" loading="lazy" src="https://www.google.com/maps?q=SDN+Bandarharjo+02+Semarang&output=embed"></iframe>
-  </div>
-  <div id="pengaduan" class="reveal"><span class="eyebrow">Pengaduan &amp; Umpan Balik</span><h2>Kirim Pesan</h2>
-    <form class="form" id="wa-form" style="margin-top:1.5rem">
-      <label>Nama<input name="nama" required placeholder="Nama lengkap"></label>
-      <label>No. HP (opsional)<input name="hp" type="tel" placeholder="08xxxxxxxxxx"></label>
-      <label>Jenis Pesan<select name="jenis"><option>Pengaduan</option><option>Saran / Umpan Balik</option><option>Pertanyaan</option></select></label>
-      <label>Pesan<textarea name="pesan" required placeholder="Tulis pesan Anda..."></textarea></label>
-      <button class="btn btn-navy" type="submit">Kirim via WhatsApp</button>
-    </form></div>
-</div></section>
+    <section class="page-hero"><div class="hero-bg"></div><div class="hero-overlay"></div><div data-hero-decor="mini"></div>
+      <div class="container"><div class="crumbs">Beranda / Kontak & Pengaduan</div><h1 data-split>Kontak & Pengaduan</h1><p>Kami senang mendengar dari Anda.</p></div></section>
+    <section class="section blobs"><div class="container contact-grid">
+      <div class="reveal reveal-left"><span class="eyebrow">Kontak</span><h2>Kunjungi &amp; Hubungi Kami</h2>
+        <ul class="contact-list" style="margin-top:1.5rem">
+          <li><span class="ci">📍</span><div><b>Alamat</b><p>Jl. Lodan Raya No. 1, Kel. Bandarharjo, Kec. Semarang Utara, Kota Semarang 50175</p></div></li>
+          <li><span class="ci">☎</span><div><b>Telepon</b><p><a href="tel:0243563228">0243563228</a></p></div></li>
+          <li><span class="ci">✉</span><div><b>Email</b><p><a href="mailto:sdnbandarharjo02semarang@gmail.com">sdnbandarharjo02semarang@gmail.com</a></p></div></li>
+        </ul>
+        <iframe class="map" title="Peta SDN Bandarharjo 02" loading="lazy" src="https://www.google.com/maps?q=SDN+Bandarharjo+02+Semarang&output=embed"></iframe>
+      </div>
+      <div id="pengaduan" class="reveal reveal-right"><span class="eyebrow">Pengaduan &amp; Umpan Balik</span><h2>Kirim Pesan</h2>
+        <form class="form" id="wa-form" style="margin-top:1.5rem">
+          <label>Nama<input name="nama" required placeholder="Nama lengkap"></label>
+          <label>No. HP (opsional)<input name="hp" type="tel" placeholder="08xxxxxxxxxx"></label>
+          <label>Jenis Pesan<select name="jenis"><option>Pengaduan</option><option>Saran / Umpan Balik</option><option>Pertanyaan</option></select></label>
+          <label>Pesan<textarea name="pesan" required placeholder="Tulis pesan Anda..."></textarea></label>
+          <button class="btn btn-navy" type="submit">Kirim via WhatsApp</button>
+        </form></div>
+    </div></section>
   </main>
   <footer id="site-footer"></footer>
   <script type="module" src="/assets/js/main.js"></script>

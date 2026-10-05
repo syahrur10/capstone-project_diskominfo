@@ -16,6 +16,7 @@ export default defineConfig({
         galeri: resolve(__dirname, 'pages/galeri.html'),
         pengumuman: resolve(__dirname, 'pages/pengumuman.html'),
         kontak: resolve(__dirname, 'pages/kontak.html'),
+        kuis: resolve(__dirname, 'pages/kuis.html'),
       },
     },
   },
