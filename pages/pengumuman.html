@@ -1,26 +1,186 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Pengumuman | SDN Bandarharjo 02 Semarang</title>
   <meta name="description" content="Pengumuman resmi SDN Bandarharjo 02 Semarang.">
+
   <link rel="icon" type="image/png" href="/favicon.png">
-  <script>try{if(sessionStorage.getItem('sdn02-pl'))document.documentElement.classList.add('no-pl');else sessionStorage.setItem('sdn02-pl','1')}catch(e){}</script>
+
+  <script>
+    try {
+      if (sessionStorage.getItem('sdn02-pl')) {
+        document.documentElement.classList.add('no-pl');
+      } else {
+        sessionStorage.setItem('sdn02-pl', '1');
+      }
+    } catch (e) {}
+  </script>
+
+  <!-- CSS WEBSITE LAMA -->
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/layout.css">
   <link rel="stylesheet" href="/assets/css/effects.css">
   <link rel="stylesheet" href="/assets/css/pages.css">
+
+  <!-- CSS KALENDER -->
+  <link rel="stylesheet" href="/assets/css/calendar.css">
 </head>
+
 <body data-page="pengumuman">
-  <div id="preloader" aria-hidden="true"><div class="pl-box"><img src="/assets/images/logo-sdn-bandarharjo-02.png" alt=""><p>Memuat SDN Bandarharjo 02</p><div class="pl-bar"><i></i></div></div></div>
+
+  <!-- PRELOADER -->
+  <div id="preloader" aria-hidden="true">
+    <div class="pl-box">
+      <img src="/assets/images/logo-sdn-bandarharjo-02.png"
+           alt="Logo SDN Bandarharjo 02">
+      <p>Memuat SDN Bandarharjo 02</p>
+      <div class="pl-bar"><i></i></div>
+    </div>
+  </div>
+
+  <!-- NAVBAR LAMA -->
   <div id="site-header"></div>
+
   <main>
-    <section class="page-hero"><div class="hero-bg"></div><div class="hero-overlay"></div>
-      <div class="container"><div class="crumbs"><a href="/">Beranda</a> / Pengumuman</div><h1>Pengumuman</h1><p>Informasi resmi untuk siswa dan orang tua.</p></div></section>
-    <section class="section"><div class="container" style="max-width:880px"><div data-render="pengumuman"></div></div></section>
+
+    <!-- BANNER PENGUMUMAN -->
+    <section class="page-hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+
+      <div class="container">
+        <div class="crumbs">
+          <a href="/">Beranda</a> / Pengumuman
+        </div>
+
+        <h1>Pengumuman</h1>
+        <p>Informasi resmi untuk siswa dan orang tua.</p>
+      </div>
+    </section>
+
+    <!-- KONTEN KALENDER -->
+    <section class="section pengumuman-calendar">
+      <div class="container kalender-layout">
+
+        <!-- KALENDER BULANAN -->
+        <section class="kalender-card"
+                 aria-label="Kalender pengumuman sekolah">
+
+          <div class="kalender-toolbar">
+
+            <div class="kalender-navigasi">
+              <button
+                id="bulan-sebelumnya"
+                type="button"
+                aria-label="Bulan sebelumnya">
+                &#8249;
+              </button>
+
+              <h2 id="judul-bulan">Oktober 2026</h2>
+
+              <button
+                id="bulan-berikutnya"
+                type="button"
+                aria-label="Bulan berikutnya">
+                &#8250;
+              </button>
+            </div>
+
+            <div class="kalender-mode">
+              <button
+                class="mode-btn aktif"
+                data-mode="bulan"
+                type="button">
+                Bulanan
+              </button>
+
+              <button
+                class="mode-btn"
+                data-mode="daftar"
+                type="button">
+                Daftar
+              </button>
+            </div>
+
+          </div>
+
+          <!-- TAMPILAN BULAN -->
+          <div id="tampilan-bulan">
+
+            <div class="kalender-hari">
+              <span>Senin</span>
+              <span>Selasa</span>
+              <span>Rabu</span>
+              <span>Kamis</span>
+              <span>Jumat</span>
+              <span>Sabtu</span>
+              <span>Minggu</span>
+            </div>
+
+            <div
+              id="kalender-grid"
+              class="kalender-grid"
+              aria-live="polite">
+            </div>
+
+          </div>
+
+          <!-- TAMPILAN DAFTAR -->
+          <div id="tampilan-daftar" hidden></div>
+
+          <!-- LEGENDA -->
+          <div class="kalender-legenda">
+            <span>
+              <i class="titik akademik"></i>
+              Akademik
+            </span>
+
+            <span>
+              <i class="titik libur"></i>
+              Libur
+            </span>
+
+            <span>
+              <i class="titik kegiatan"></i>
+              Kegiatan Sekolah
+            </span>
+          </div>
+
+        </section>
+
+        <!-- AGENDA MENDATANG -->
+        <aside class="agenda-card">
+
+          <h2>
+            <span class="agenda-icon">&#128197;</span>
+            Agenda Mendatang
+          </h2>
+
+          <div id="daftar-agenda">
+            <p class="kalender-kosong">
+              Memuat agenda...
+            </p>
+          </div>
+
+        </aside>
+
+      </div>
+    </section>
+
   </main>
+
+  <!-- FOOTER LAMA -->
   <footer id="site-footer"></footer>
+
+  <!-- JAVASCRIPT WEBSITE LAMA -->
   <script type="module" src="/assets/js/main.js"></script>
+
+  <!-- JAVASCRIPT KALENDER -->
+  <script src="/assets/js/calendar.js" defer></script>
+
 </body>
 </html>
