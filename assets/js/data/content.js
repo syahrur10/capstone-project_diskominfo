@@ -29,39 +29,10 @@ export const BERITA = [ // CONTOH
   { tag: 'Kegiatan', title: 'Jumat Bersih & Pembiasaan', date: '2026-09-18', icon: 'leaf', img: 'contoh-3.jpg', text: 'Menumbuhkan karakter peduli lingkungan melalui kerja bakti bersama.' },
 ];
 
-/**
- * PENGUMUMAN — satu daftar untuk SEPANJANG TAHUN; halaman Pengumuman otomatis
- * membaginya per bulan (tahun & bulan dibaca dari "date": YYYY-MM-DD).
- * tag: 'Akademik' | 'Libur' | 'Kegiatan' | 'Administrasi'  (menentukan warna label)
- * Cukup tambah baris baru; urutan di array tidak penting.
- */
 export const PENGUMUMAN = [ // CONTOH
-  { date: '2025-11-10', tag: 'Kegiatan', title: 'Upacara Peringatan Hari Pahlawan', text: 'Seluruh siswa mengenakan seragam lengkap dan berkumpul di lapangan pukul 07.00 WIB.' },
-  { date: '2025-12-20', tag: 'Akademik', title: 'Pembagian Rapor Semester Ganjil 2025/2026', text: 'Orang tua/wali mengambil rapor sesuai jadwal kelas masing-masing di ruang kelas.' },
-  { date: '2025-12-22', tag: 'Libur', title: 'Libur Semester Ganjil dan Natal', text: 'Libur semester dimulai 22 Desember 2025 dan berakhir 3 Januari 2026.' },
-
-  { date: '2026-01-05', tag: 'Akademik', title: 'Awal Masuk Semester Genap', text: 'Kegiatan belajar mengajar semester genap dimulai kembali. Siswa hadir pukul 07.00 WIB.' },
-  { date: '2026-01-23', tag: 'Kegiatan', title: 'Jumat Sehat dan Senam Pagi Bersama', text: 'Senam bersama seluruh siswa dan guru. Siswa memakai pakaian olahraga.' },
-  { date: '2026-02-09', tag: 'Administrasi', title: 'Pembaruan Data Peserta Didik (Dapodik)', text: 'Orang tua diminta memeriksa kembali data anak di buku penghubung dan melapor ke wali kelas bila ada perubahan.' },
-  { date: '2026-02-17', tag: 'Libur', title: 'Libur Tahun Baru Imlek', text: 'Kegiatan belajar mengajar diliburkan dan dimulai kembali pada hari berikutnya.' },
-  { date: '2026-03-02', tag: 'Akademik', title: 'Asesmen Sumatif Tengah Semester Genap', text: 'Asesmen berlangsung selama satu pekan. Siswa membawa alat tulis lengkap.' },
-  { date: '2026-03-16', tag: 'Libur', title: 'Libur Hari Raya Nyepi dan Idulfitri', text: 'Libur sesuai kalender pendidikan Kota Semarang. Informasi masuk kembali akan disampaikan lewat grup kelas.' },
-  { date: '2026-04-21', tag: 'Kegiatan', title: 'Peringatan Hari Kartini', text: 'Siswa berpakaian adat daerah. Ada lomba fashion show dan menggambar.' },
-  { date: '2026-05-04', tag: 'Akademik', title: 'Pendaftaran Peserta Didik Baru (SPMB) 2026/2027', text: 'Pendaftaran dibuka secara daring dan luring. Persyaratan dapat dilihat di papan pengumuman sekolah.' },
-  { date: '2026-05-20', tag: 'Kegiatan', title: 'Peringatan Hari Kebangkitan Nasional', text: 'Upacara bendera dan pentas seni singkat dari perwakilan tiap kelas.' },
-  { date: '2026-06-08', tag: 'Akademik', title: 'Asesmen Sumatif Akhir Tahun Kelas 1–5', text: 'Pelaksanaan asesmen akhir tahun. Jadwal per kelas dibagikan melalui wali kelas.' },
-  { date: '2026-06-27', tag: 'Akademik', title: 'Pembagian Rapor Kenaikan Kelas', text: 'Rapor diambil oleh orang tua/wali. Mohon hadir tepat waktu sesuai jadwal.' },
-  { date: '2026-07-13', tag: 'Akademik', title: 'Hari Pertama Tahun Ajaran 2026/2027', text: 'Masa Pengenalan Lingkungan Sekolah (MPLS) untuk siswa baru kelas 1.' },
-  { date: '2026-08-17', tag: 'Kegiatan', title: 'Upacara dan Lomba HUT Kemerdekaan RI', text: 'Upacara bendera dilanjutkan lomba tradisional antar kelas: balap karung, makan kerupuk, dan tarik tambang.' },
-  { date: '2026-09-28', tag: 'Kegiatan', title: 'Kegiatan Jumat Bersih dan Pembiasaan', text: 'Kerja bakti membersihkan kelas dan halaman sekolah bersama-sama.' },
-  { date: '2026-10-05', tag: 'Akademik', title: 'Jadwal Penilaian Tengah Semester Ganjil', text: 'Pelaksanaan PTS dimulai pekan depan. Siswa diharap membawa alat tulis lengkap.' },
-  { date: '2026-10-17', tag: 'Administrasi', title: 'Pembagian Rapor Tengah Semester', text: 'Orang tua/wali diharapkan hadir sesuai jadwal kelas masing-masing.' },
-  { date: '2026-10-28', tag: 'Libur', title: 'Libur Peringatan Hari Besar Nasional', text: 'Kegiatan belajar mengajar diliburkan dan dimulai kembali sesuai kalender pendidikan.' },
-  { date: '2026-11-10', tag: 'Kegiatan', title: 'Upacara Peringatan Hari Pahlawan', text: 'Siswa mengenakan seragam lengkap. Ada pembacaan puisi perjuangan oleh perwakilan kelas.' },
-  { date: '2026-11-25', tag: 'Kegiatan', title: 'Peringatan Hari Guru Nasional', text: 'Siswa menyiapkan penampilan dan kartu ucapan untuk bapak dan ibu guru.' },
-  { date: '2026-12-14', tag: 'Akademik', title: 'Asesmen Sumatif Akhir Semester Ganjil', text: 'Asesmen berlangsung satu pekan. Jadwal lengkap dibagikan melalui wali kelas.' },
-  { date: '2026-12-19', tag: 'Akademik', title: 'Pembagian Rapor Semester Ganjil', text: 'Orang tua/wali mengambil rapor di kelas masing-masing sesuai jadwal.' },
-  { date: '2026-12-21', tag: 'Libur', title: 'Libur Semester dan Natal', text: 'Libur semester dimulai 21 Desember 2026. Masuk kembali sesuai kalender pendidikan.' },
+  { title: 'Jadwal Penilaian Tengah Semester Ganjil', date: '2026-10-05', text: 'Pelaksanaan PTS dimulai pekan depan. Siswa diharap membawa alat tulis lengkap.' },
+  { title: 'Pembagian Rapor Tengah Semester', date: '2026-10-17', text: 'Orang tua/wali diharapkan hadir sesuai jadwal kelas masing-masing.' },
+  { title: 'Libur Peringatan Hari Besar Nasional', date: '2026-10-28', text: 'Kegiatan belajar mengajar diliburkan dan dimulai kembali sesuai kalender pendidikan.' },
 ];
 
 export const LOMBA = [ // CONTOH
