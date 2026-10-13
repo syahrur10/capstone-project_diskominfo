@@ -65,21 +65,19 @@ Proyek ini adalah **peningkatan (upgrade) website SDN Bandarharjo 02 Semarang**,
 | **Kontak & Pengaduan** | Alamat, peta, formulir yang terkirim lewat WhatsApp |
 | **Tautan** | Dropdown ke Dinas Pendidikan, Kemendikdasmen, Rapor Pendidikan, dll. |
 
-### Animasi & Interaksi
-- Preloader logo memantul
-- **Kursor kustom** (titik + cincin) dengan **jejak bintang** dan ledakan bintang saat klik
-- Background hero bergerak: foto zoom + parallax, awan melayang, ikon melayang mengikuti mouse, ombak
-- Header transparan yang berubah solid saat scroll, menu dengan teks bergulir
-- Angka statistik berhitung naik, teks ketik otomatis, reveal bertahap saat scroll
-- Kartu miring 3D, tombol magnetik + ripple, marquee teks & foto berjalan
-- Progress bar scroll dan tombol kembali ke atas
-- Menghormati pengaturan *reduced motion* & otomatis mati di layar sentuh
+### Tampilan & Interaksi
+- Tampilan situs **profesional**: header putih yang menempel saat scroll, tipografi Newsreader + Manrope, palet navy–emas dari logo, ikon garis SVG
+- Preloader logo hanya muncul **sekali per sesi** (kunjungan pertama), tidak muncul lagi saat pindah halaman
+- Efek secukupnya: progress bar scroll, tombol kembali ke atas, angka statistik berhitung naik
+- Gambar yang belum ada otomatis diganti placeholder, jadi tidak muncul ikon gambar rusak
+- Menghormati pengaturan *reduced motion*
+- **Halaman Kuis Cerdas sengaja tetap ceria**, dengan karakter SVG beranimasi (maskot Pak Hoot, 6 karakter pemain, ilustrasi soal)
 
 ## 🧠 Kuis Cerdas (Fitur Machine Learning)
 
-Kuis asah otak untuk siswa SD dengan maskot burung hantu **Pak Hoot**, roket penanda progres, timer, suara, konfeti, dan papan juara.
+Kuis asah otak untuk siswa SD dengan maskot burung hantu **Pak Hoot** (karakter SVG beranimasi), roket penanda progres, timer, suara, konfeti, dan papan juara.
 
-**Topik:** 🧮 Hitung Cepat · 🔢 Pola Angka · 🎨 Pola Gambar · 🧩 Logika (10 tingkat kesulitan, soal dibuat otomatis).
+**Topik:** Hitung Cepat · Pola Angka · Pola Gambar · Logika (10 tingkat kesulitan, soal dibuat otomatis).
 
 **Cara kerja "Otak AI"** (`assets/js/quiz-engine.js`):
 
@@ -98,7 +96,7 @@ Kuis asah otak untuk siswa SD dengan maskot burung hantu **Pak Hoot**, roket pen
 
 - **Vite 5**: multi-page build
 - **HTML5, CSS3, JavaScript (ES Modules)**: tanpa framework
-- **Google Fonts**: Fredoka & Nunito
+- **Google Fonts**: Newsreader & Manrope (situs), Fredoka & Nunito (kuis)
 - **Web Audio API & Canvas**: efek suara, konfeti, grafik hasil kuis
 - **Vercel**: hosting
 
@@ -112,7 +110,8 @@ sdn-bandarharjo-02/
 │   ├── css/
 │   │   ├── base.css            # variabel warna, tipografi, tombol
 │   │   ├── layout.css          # header, menu, footer
-│   │   ├── effects.css         # preloader, kursor, background bergerak
+│   │   ├── effects.css         # preloader (sekali per sesi), progress, placeholder gambar
+│   │   ├── chars.css           # animasi karakter SVG kuis
 │   │   ├── pages.css           # tampilan tiap halaman
 │   │   └── quiz.css            # tampilan kuis
 │   └── js/

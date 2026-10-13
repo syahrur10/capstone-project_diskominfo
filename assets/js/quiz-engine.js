@@ -10,10 +10,10 @@
  * Seluruh data tersimpan di localStorage perangkat anak (tanpa server).
  */
 export const TOPICS = [
-  { id: 'hitung', name: 'Hitung Cepat', icon: '🧮', color: '#ff6b6b' },
-  { id: 'polaAngka', name: 'Pola Angka', icon: '🔢', color: '#4dabf7' },
-  { id: 'polaGambar', name: 'Pola Gambar', icon: '🎨', color: '#51cf66' },
-  { id: 'logika', name: 'Logika', icon: '🧩', color: '#f59f00' },
+  { id: 'hitung', name: 'Hitung Cepat', icon: 'calc', color: '#ff6b6b' },
+  { id: 'polaAngka', name: 'Pola Angka', icon: 'digits', color: '#4dabf7' },
+  { id: 'polaGambar', name: 'Pola Gambar', icon: 'palette', color: '#51cf66' },
+  { id: 'logika', name: 'Logika', icon: 'puzzle', color: '#f59f00' },
 ];
 const R = (a, b) => Math.floor(Math.random() * (b - a + 1)) + a;
 const pick = (a) => a[R(0, a.length - 1)];
@@ -118,7 +118,7 @@ export class Brain {
   constructor() { this.reset(false); try { const s = JSON.parse(localStorage.getItem(KEY)); if (s && s.w && s.w.length === W0.length) Object.assign(this, s); } catch {} }
   reset(save = true) {
     Object.assign(this, { w: [...W0], theta: Object.fromEntries(TOPICS.map((t) => [t.id, 3])), topicAcc: Object.fromEntries(TOPICS.map((t) => [t.id, .5])),
-      recent: [], speed: .5, n: 0, rounds: 0, profile: this.profile || { name: '', avatar: '🦊' }, board: this.board || [] });
+      recent: [], speed: .5, n: 0, rounds: 0, profile: this.profile || { name: '', avatar: 'fox' }, board: this.board || [] });
     if (save) this.save();
   }
   save() { try { localStorage.setItem(KEY, JSON.stringify({ w: this.w, theta: this.theta, topicAcc: this.topicAcc, recent: this.recent, speed: this.speed, n: this.n, rounds: this.rounds, profile: this.profile, board: this.board })); } catch {} }
@@ -153,6 +153,6 @@ export class Brain {
   skor() { return Math.round(((this.meanTheta() - 1) / 9) * 100); }
   levelOtak() { return Math.round(this.meanTheta()); }
   weakest() { return TOPICS.reduce((a, b) => (this.theta[a.id] <= this.theta[b.id] ? a : b)); }
-  rank() { const m = this.meanTheta(); return m < 3 ? 'Calon Pintar 🐣' : m < 5 ? 'Bintang Kecil ⭐' : m < 7 ? 'Pendekar Angka 🦸' : m < 8.5 ? 'Profesor Cilik 🎓' : 'Jenius Cilik 🚀'; }
+  rank() { const m = this.meanTheta(); return m < 3 ? 'Calon Pintar' : m < 5 ? 'Bintang Kecil' : m < 7 ? 'Pendekar Angka' : m < 8.5 ? 'Profesor Cilik' : 'Jenius Cilik'; }
   addScore(score) { this.rounds++; this.board = [...this.board, { name: this.profile.name || 'Anak Hebat', avatar: this.profile.avatar, score, date: Date.now() }].sort((a, b) => b.score - a.score).slice(0, 5); this.save(); }
 }

@@ -1,11 +1,18 @@
-/** quiz-ui.js — tampilan kuis ramah anak: maskot burung hantu, roket, konfeti, suara, hasil & grafik. */
+/** quiz-ui.js — tampilan kuis ramah anak: maskot Pak Hoot, roket, konfeti, suara, hasil & grafik. Semua ikon berupa karakter SVG (chars.js). */
 import { Brain, TOPICS, FEATURE_NAMES, TARGET_P } from './quiz-engine.js';
+import { art, rich, AVATARS } from './chars.js';
 
 const app = document.getElementById('quiz-app');
 const brain = new Brain();
 const ROUND = 10, TIME = 25;
-const AVATARS = ['🦊', '🐼', '🐯', '🐸', '🦄', '🐙'];
 let st = null, timerId = null, soundOn = true, locked = false;
+
+/* avatar lama (emoji) yang tersimpan di perangkat dipetakan ke karakter baru */
+const av = (a) => (AVATARS.includes(a) ? a : 'fox');
+brain.profile.avatar = av(brain.profile.avatar);
+const ico = (n, s = 24) => `<span class="ico">${art(n, s)}</span>`;
+const clean = (t) => String(t).replace(/[\u{1F300}-\u{1FAFF}]\uFE0F?/gu, '').trim();
+const speaker = () => art(soundOn ? 'speaker' : 'mute', 36);
 
 /* ---------- SUARA & KONFETI ---------- */
 let actx;
@@ -31,28 +38,31 @@ function confetti(n = 90) {
 const $ = (s) => app.querySelector(s);
 const toTop = () => scrollTo({ top: app.getBoundingClientRect().top + scrollY - 100, behavior: 'smooth' });
 const pct = (v) => Math.round(v * 100);
+const boardHTML = () => brain.board.map((b, i) => `<li><span>${i + 1}. ${ico(av(b.avatar), 26)}${b.name}</span><span>${b.score} poin</span></li>`).join('');
+const bindSound = () => { $('#snd').onclick = () => { soundOn = !soundOn; $('#snd').innerHTML = speaker(); }; };
 
 /* ---------- INTRO ---------- */
 function intro() {
   clearInterval(timerId);
   const pr = brain.profile, known = brain.n > 0;
   app.innerHTML = `<div class="q-card q-center">
-    <button class="sound-btn" id="snd" aria-label="Suara">${soundOn ? '🔊' : '🔇'}</button>
-    <div class="mascot" style="justify-content:center"><div class="owl-face">🦉</div><div class="bubble">${known ? `Halo lagi, ${pr.name || 'teman'}! Otakku sudah belajar dari ${brain.n} jawabanmu 🎉` : 'Halo! Aku Pak Hoot 🦉. Ayo asah otakmu bersamaku!'}</div></div>
+    <button class="sound-btn" id="snd" aria-label="Suara">${speaker()}</button>
+    <div class="mascot" style="justify-content:center"><div class="owl-face">${art('owl', 104)}</div><div class="bubble">${known ? `Halo lagi, ${pr.name || 'teman'}! Otakku sudah belajar dari ${brain.n} jawabanmu.` : 'Halo! Aku Pak Hoot. Ayo asah otakmu bersamaku!'}</div></div>
     <h2>Kuis Cerdas</h2>
     <p style="margin:.5rem auto 1rem;max-width:560px">Soalnya <b>menyesuaikan kemampuanmu</b>. Makin sering main, makin pintar Otak AI memilih soal yang pas buatmu!</p>
-    <div class="avatars" id="avs">${AVATARS.map((a) => `<button class="avatar ${a === pr.avatar ? 'sel' : ''}" data-a="${a}">${a}</button>`).join('')}</div>
+    <p style="font-weight:800;color:var(--navy);margin-top:1.2rem">Pilih temanmu</p>
+    <div class="avatars" id="avs">${AVATARS.map((a) => `<button class="avatar ${a === pr.avatar ? 'sel' : ''}" data-a="${a}" aria-label="Karakter ${a}">${art(a, 56)}</button>`).join('')}</div>
     <input class="q-input" id="nm" maxlength="14" placeholder="Nama panggilanmu" value="${pr.name || ''}" aria-label="Nama">
-    <div class="topic-pills">${TOPICS.map((t) => `<span class="pill" style="background:${t.color}">${t.icon} ${t.name}</span>`).join('')}</div>
-    <button class="btn btn-primary" id="go" style="font-size:1.3rem">🚀 Mulai Main!</button>
-    ${known ? `<div class="brain" style="margin-top:1.6rem;text-align:left"><div class="ic">🤖</div><div><b>Otak AI-mu</b><small>Skor Pintar ${brain.skor()}/100 · ${brain.rank()}</small><div class="meter"><i style="width:${brain.skor()}%"></i></div></div><div class="lv">${brain.levelOtak()}<small>LEVEL</small></div></div>
-    <button class="btn-soft" id="rst" style="margin-top:1rem">🗑️ Reset Otak AI</button>` : ''}
-    ${brain.board.length ? `<div class="res-box" style="margin-top:1.4rem;text-align:left"><h4>🏆 Papan Juara (perangkat ini)</h4><ul class="board">${brain.board.map((b, i) => `<li><span>${i + 1}. ${b.avatar} ${b.name}</span><span>${b.score} poin</span></li>`).join('')}</ul></div>` : ''}
+    <div class="topic-pills">${TOPICS.map((t) => `<span class="pill" style="background:${t.color}">${art(t.icon, 28)} ${t.name}</span>`).join('')}</div>
+    <button class="btn btn-primary" id="go" style="font-size:1.3rem">${ico('rocket', 30)} Mulai main!</button>
+    ${known ? `<div class="brain" style="margin-top:1.6rem;text-align:left"><div class="ic">${art('bot', 52)}</div><div><b>Otak AI-mu</b><small>Skor Pintar ${brain.skor()}/100 · ${brain.rank()}</small><div class="meter"><i style="width:${brain.skor()}%"></i></div></div><div class="lv">${brain.levelOtak()}<small>LEVEL</small></div></div>
+    <button class="btn-soft" id="rst" style="margin-top:1rem">${ico('trash', 22)} Reset Otak AI</button>` : ''}
+    ${brain.board.length ? `<div class="res-box" style="margin-top:1.4rem;text-align:left"><h4>${ico('trophy', 28)} Papan Juara (perangkat ini)</h4><ul class="board">${boardHTML()}</ul></div>` : ''}
   </div>`;
   $('#avs').onclick = (e) => { const b = e.target.closest('.avatar'); if (!b) return; app.querySelectorAll('.avatar').forEach((x) => x.classList.remove('sel')); b.classList.add('sel'); brain.profile.avatar = b.dataset.a; beep(700, .08); };
-  $('#snd').onclick = (e) => { soundOn = !soundOn; e.target.textContent = soundOn ? '🔊' : '🔇'; };
+  bindSound();
   $('#go').onclick = () => { brain.profile.name = $('#nm').value.trim() || 'Anak Hebat'; brain.save(); beep(520, .1); beep(780, .15, 'sine', .1); startRound(); };
-  const r = $('#rst'); if (r) r.onclick = () => { if (confirm('Hapus semua yang sudah dipelajari Otak AI?')) { brain.reset(); intro(); } };
+  const r = $('#rst'); if (r) r.onclick = () => { if (confirm('Hapus semua yang sudah dipelajari Otak AI?')) { brain.reset(); brain.profile.avatar = av(brain.profile.avatar); intro(); } };
 }
 
 /* ---------- RONDE ---------- */
@@ -64,24 +74,23 @@ function nextQ() {
   const q = brain.choose(st.prev, st.used); st.q = q; st.prev = q.topic; st.t0 = performance.now();
   const T = TOPICS.find((t) => t.id === q.topic), pr = brain.profile;
   app.innerHTML = `<div class="q-card">
-    <button class="sound-btn" id="snd" aria-label="Suara">${soundOn ? '🔊' : '🔇'}</button>
-    <div class="hud"><span class="chip-mini">${pr.avatar} ${pr.name}</span><span class="chip-mini">⭐ <b id="sc">${st.score}</b> poin</span><span class="chip-mini">Soal ${st.i + 1}/${ROUND}</span></div>
-    <div class="track"><div class="track-fill" style="width:${(st.i / ROUND) * 100}%"></div><div class="rocket" style="left:${(st.i / ROUND) * 100}%">🚀</div></div>
+    <button class="sound-btn" id="snd" aria-label="Suara">${speaker()}</button>
+    <div class="hud"><span class="chip-mini">${ico(av(pr.avatar), 26)}${pr.name}</span><span class="chip-mini">${ico('star', 22)}<b id="sc">${st.score}</b> poin</span><span class="chip-mini">Soal ${st.i + 1}/${ROUND}</span></div>
+    <div class="track"><div class="track-fill" style="width:${(st.i / ROUND) * 100}%"></div><div class="rocket" style="left:${(st.i / ROUND) * 100}%">${art('rocket', 38)}</div></div>
     <div class="timer"><i id="tm"></i></div>
-    <div class="mascot"><div class="owl-face" id="owl">🦉</div><div class="bubble" id="say">${['Kamu pasti bisa!', 'Baca pelan-pelan ya 👀', 'Ayo semangat! 💪', 'Teliti dulu sebelum menjawab!'][st.i % 4]}</div></div>
-    <div class="q-meta"><span class="q-topic">${T.icon} ${T.name}</span><span class="q-level">Tingkat ${q.level}/10</span></div>
-    <div class="q-text">${q.html}</div>
+    <div class="mascot"><div class="owl-face" id="owl">${art('owl', 104)}</div><div class="bubble" id="say">${['Kamu pasti bisa!', 'Baca pelan-pelan ya.', 'Ayo semangat!', 'Teliti dulu sebelum menjawab!'][st.i % 4]}</div></div>
+    <div class="q-meta"><span class="q-topic">${ico(T.icon, 28)}${T.name}</span><span class="q-level">Tingkat ${q.level}/10</span></div>
+    <div class="q-text">${rich(q.html)}</div>
     <div class="q-hint" id="hint"></div>
-    <div class="options">${q.options.map((o, i) => `<button class="opt" data-i="${i}"><kbd>${i + 1}</kbd>${o}</button>`).join('')}</div>
+    <div class="options">${q.options.map((o, i) => `<button class="opt" data-i="${i}"><kbd>${i + 1}</kbd>${rich(o, 52)}</button>`).join('')}</div>
     <div class="feedback" id="fb"></div>
-    <div class="q-actions"><button class="btn-soft" id="hb">💡 Petunjuk (−3 poin)</button><button class="btn btn-navy" id="nx" hidden>${st.i + 1 === ROUND ? 'Lihat Hasil 🏆' : 'Lanjut ➜'}</button></div>
-    <div class="brain"><div class="ic">🤖</div><div><b>Otak AI menebak:</b> kamu bisa menjawab ini dengan peluang <b>${pct(q.p)}%</b><div class="meter"><i style="width:${pct(q.p)}%"></i></div></div><div class="lv">${brain.levelOtak()}<small>LEVEL OTAK</small></div></div>
+    <div class="q-actions"><button class="btn-soft" id="hb">${ico('bulb', 22)} Petunjuk (−3 poin)</button><button class="btn btn-navy" id="nx" hidden>${st.i + 1 === ROUND ? 'Lihat hasil' : 'Lanjut'}</button></div>
+    <div class="brain"><div class="ic">${art('bot', 52)}</div><div><b>Otak AI menebak:</b> kamu bisa menjawab ini dengan peluang <b>${pct(q.p)}%</b><div class="meter"><i style="width:${pct(q.p)}%"></i></div></div><div class="lv">${brain.levelOtak()}<small>LEVEL OTAK</small></div></div>
   </div>`;
-  $('#snd').onclick = (e) => { soundOn = !soundOn; e.target.textContent = soundOn ? '🔊' : '🔇'; };
+  bindSound();
   app.querySelectorAll('.opt').forEach((b) => (b.onclick = () => answer(+b.dataset.i)));
-  $('#hb').onclick = () => { if (locked || st.hinted) return; st.hinted = true; st.hints++; $('#hint').textContent = '💡 ' + q.hint; $('#hb').disabled = true; beep(900, .1); };
+  $('#hb').onclick = () => { if (locked || st.hinted) return; st.hinted = true; st.hints++; $('#hint').innerHTML = `${ico('bulb', 24)}${rich(clean(q.hint), 26)}`; $('#hb').disabled = true; beep(900, .1); };
   $('#nx').onclick = () => { st.i++; nextQ(); };
-  // timer
   const tm = $('#tm'); tm.style.transition = `transform ${TIME}s linear`; requestAnimationFrame(() => requestAnimationFrame(() => (tm.style.transform = 'scaleX(0)')));
   clearTimeout(timerId); timerId = setTimeout(() => answer(-1), TIME * 1000);
 }
@@ -95,8 +104,9 @@ function answer(i) {
   app.querySelectorAll('.opt').forEach((b, k) => { b.disabled = true; if (k === q.answer) b.classList.add('right'); else if (k === i) b.classList.add('wrong'); });
   const tm = $('#tm'); tm.style.transition = 'none'; const fb = $('#fb'), owl = $('#owl'), say = $('#say');
   $('#sc').textContent = st.score;
-  if (ok) { fb.className = 'feedback ok'; fb.innerHTML = `🎉 Benar! +${gain} poin<br><small>${q.explain}</small>`; owl.classList.add('cheer'); say.textContent = ['Hebat sekali! 🌟', 'Kamu pintar! 👏', 'Yeay, tepat! 🎈', 'Luar biasa! 🚀'][Math.floor(Math.random() * 4)]; sfx.ok(); confetti(50); }
-  else { fb.className = 'feedback no'; fb.innerHTML = `${i < 0 ? '⏰ Waktu habis!' : '😅 Belum tepat.'}<br><small>${q.explain}</small>`; owl.classList.add('oops'); say.textContent = 'Tidak apa-apa, kita belajar bareng! 💪'; sfx.no(); }
+  const ex = `<small>${rich(clean(q.explain), 30)}</small>`;
+  if (ok) { fb.className = 'feedback ok'; fb.innerHTML = `${ico('star', 28)}<b>Benar! +${gain} poin</b><br>${ex}`; owl.classList.add('cheer'); say.textContent = ['Hebat sekali!', 'Kamu pintar!', 'Yeay, tepat!', 'Luar biasa!'][Math.floor(Math.random() * 4)]; sfx.ok(); confetti(50); }
+  else { fb.className = 'feedback no'; fb.innerHTML = `${i < 0 ? ico('timeup', 28) + '<b>Waktu habis!</b>' : '<b>Belum tepat.</b>'}<br>${ex}`; owl.classList.add('oops'); say.textContent = 'Tidak apa-apa, kita belajar bareng!'; sfx.no(); }
   const nx = $('#nx'); nx.hidden = false; nx.focus({ preventScroll: true });
 }
 
@@ -113,21 +123,21 @@ function finish() {
   brain.addScore(st.score); sfx.win(); confetti(stars ? 160 : 40);
   const avgP = st.trace.reduce((s, t) => s + t.p, 0) / st.trace.length, real = st.correct / ROUND, weak = brain.weakest();
   app.innerHTML = `<div class="q-card q-center">
-    <div class="mascot" style="justify-content:center"><div class="owl-face cheer">🦉</div><div class="bubble">${stars === 3 ? 'WOW! Kamu luar biasa!' : stars ? 'Bagus! Latihan lagi yuk!' : 'Jangan menyerah, ayo coba lagi!'}</div></div>
-    <div class="stars">${[1, 2, 3].map((n) => `<span class="${n <= stars ? 'on' : 'off'}" style="animation-delay:${n * .25}s">⭐</span>`).join('')}</div>
+    <div class="mascot" style="justify-content:center"><div class="owl-face cheer">${art('owl', 104)}</div><div class="bubble">${stars === 3 ? 'WOW! Kamu luar biasa!' : stars ? 'Bagus! Latihan lagi yuk!' : 'Jangan menyerah, ayo coba lagi!'}</div></div>
+    <div class="stars">${[1, 2, 3].map((n) => `<span class="${n <= stars ? 'on' : 'off'}" style="animation-delay:${n * .25}s">${art('star', 74)}</span>`).join('')}</div>
     <div class="score-big">${st.score}</div><p><b>poin</b> · ${st.correct}/${ROUND} benar${st.hints ? ` · ${st.hints}× petunjuk` : ''}</p>
     <div class="rank">${brain.rank()} · Skor Pintar ${brain.skor()}/100</div>
     <div class="res-grid">
-      <div class="res-box"><h4>📊 Hasil per topik</h4>${TOPICS.map((t) => { const r = st.per[t.id], v = r.n ? (r.ok / r.n) * 100 : 0;
-        return `<div class="bar-row">${t.icon} ${t.name} <span style="float:right">${r.ok}/${r.n}</span><div class="bar"><i data-w="${v}" style="background:${t.color}"></i></div></div>`; }).join('')}</div>
-      <div class="res-box"><h4>📈 Perjalanan soalmu</h4><canvas class="chart" id="chart" width="420" height="190"></canvas><small>Biru = tingkat soal · titik: ✅ benar / ❌ salah</small></div>
+      <div class="res-box"><h4>Hasil per topik</h4>${TOPICS.map((t) => { const r = st.per[t.id], v = r.n ? (r.ok / r.n) * 100 : 0;
+        return `<div class="bar-row">${ico(t.icon, 26)}${t.name} <span style="float:right">${r.ok}/${r.n}</span><div class="bar"><i data-w="${v}" style="background:${t.color}"></i></div></div>`; }).join('')}</div>
+      <div class="res-box"><h4>Perjalanan soalmu</h4><canvas class="chart" id="chart" width="420" height="190"></canvas><small>Biru = tingkat soal · titik hijau benar, merah salah</small></div>
     </div>
-    <div class="insight">🤖 <b>Kata Otak AI:</b> Tebakanku rata-rata ${pct(avgP)}% kamu bisa menjawab, dan hasil sebenarnya ${pct(real)}%. ${real >= avgP ? 'Kamu lebih hebat dari tebakanku, jadi soal berikutnya kubuat lebih menantang! 🚀' : 'Soal berikutnya kubuat lebih pas supaya kamu tetap percaya diri. 😊'} Topik yang perlu dilatih: <b>${weak.icon} ${weak.name}</b>.</div>
-    <div class="q-actions" style="justify-content:center;margin-top:1.4rem"><button class="btn btn-primary" id="again">🔁 Main Lagi</button><button class="btn-soft" id="home">🏠 Menu Awal</button></div>
-    <details class="tech"><summary>🔬 Cara kerja Otak AI (untuk guru &amp; dosen)</summary>
+    <div class="insight">${ico('bot', 30)}<b>Kata Otak AI:</b> Tebakanku rata-rata ${pct(avgP)}% kamu bisa menjawab, dan hasil sebenarnya ${pct(real)}%. ${real >= avgP ? 'Kamu lebih hebat dari tebakanku, jadi soal berikutnya kubuat lebih menantang!' : 'Soal berikutnya kubuat lebih pas supaya kamu tetap percaya diri.'} Topik yang perlu dilatih: <b>${weak.name}</b>.</div>
+    <div class="q-actions" style="justify-content:center;margin-top:1.4rem"><button class="btn btn-primary" id="again">${ico('replay', 26)} Main lagi</button><button class="btn-soft" id="home">${ico('home', 22)} Menu awal</button></div>
+    <details class="tech"><summary>Cara kerja Otak AI (untuk guru &amp; dosen)</summary>
       <p>Model: <b>regresi logistik online (SGD)</b> memprediksi peluang benar <code>p = σ(w·x)</code>; setelah tiap jawaban <code>w ← w + η(y − p)x − ηλw</code> (η=0,2). Kemampuan per topik diestimasi dengan <b>IRT 1PL</b>. Soal dipilih agar p ≈ ${TARGET_P * 100}% (zona belajar optimal). Data hanya tersimpan di perangkat. <i>Ini bukan tes IQ klinis, hanya latihan asah otak.</i></p>
       <p>Bobot saat ini: ${FEATURE_NAMES.map((n, i) => `<code>${n}: ${brain.w[i].toFixed(2)}</code>`).join(' ')}</p></details>
-    ${brain.board.length ? `<div class="res-box" style="margin-top:1.2rem;text-align:left"><h4>🏆 Papan Juara</h4><ul class="board">${brain.board.map((b, i) => `<li><span>${i + 1}. ${b.avatar} ${b.name}</span><span>${b.score} poin</span></li>`).join('')}</ul></div>` : ''}
+    ${brain.board.length ? `<div class="res-box" style="margin-top:1.2rem;text-align:left"><h4>${ico('trophy', 28)} Papan Juara</h4><ul class="board">${boardHTML()}</ul></div>` : ''}
   </div>`;
   requestAnimationFrame(() => app.querySelectorAll('.bar i').forEach((b) => (b.style.width = b.dataset.w + '%')));
   drawChart($('#chart'), st.trace);

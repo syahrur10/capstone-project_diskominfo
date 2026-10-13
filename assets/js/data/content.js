@@ -9,6 +9,7 @@ export const SITE = {
   email: 'sdnbandarharjo02semarang@gmail.com',
   phone: '0243563228',
   wa: '6281234567890', // TODO: ganti nomor WhatsApp sekolah (format 62xxx tanpa +)
+  kepsek: 'Nama Kepala Sekolah', // TODO: ganti dengan nama kepala sekolah
   oldSite: 'https://sdnbandarharjo02.dikdas.semarangkota.go.id',
   social: { facebook: '#', twitter: '#', youtube: '#', instagram: '#' }, // TODO isi link asli
 };
@@ -23,9 +24,9 @@ export const STATS = [ // CONTOH — n angka = animasi hitung naik; n teks = tam
 export const MARQUEE = ['Berprestasi', 'Berkarakter', 'Ceria', 'Cinta Lingkungan', 'Kreatif', 'Santun', 'Cerdas'];
 
 export const BERITA = [ // CONTOH
-  { tag: 'Kegiatan', title: 'Upacara Bendera Hari Senin', date: '2026-09-28', icon: '🇮🇩', img: 'contoh-1.jpg', text: 'Seluruh siswa mengikuti upacara bendera dengan tertib dan penuh semangat.' },
-  { tag: 'Prestasi', title: 'Siswa Raih Juara Lomba Tingkat Kecamatan', date: '2026-09-20', icon: '🏆', img: 'contoh-2.jpg', text: 'Selamat kepada para juara yang telah mengharumkan nama sekolah.' },
-  { tag: 'Kegiatan', title: 'Jumat Bersih & Pembiasaan', date: '2026-09-18', icon: '🧹', img: 'contoh-3.jpg', text: 'Menumbuhkan karakter peduli lingkungan melalui kerja bakti bersama.' },
+  { tag: 'Kegiatan', title: 'Upacara Bendera Hari Senin', date: '2026-09-28', icon: 'flag', img: 'contoh-1.jpg', text: 'Seluruh siswa mengikuti upacara bendera dengan tertib dan penuh semangat.' },
+  { tag: 'Prestasi', title: 'Siswa Raih Juara Lomba Tingkat Kecamatan', date: '2026-09-20', icon: 'trophy', img: 'contoh-2.jpg', text: 'Selamat kepada para juara yang telah mengharumkan nama sekolah.' },
+  { tag: 'Kegiatan', title: 'Jumat Bersih & Pembiasaan', date: '2026-09-18', icon: 'leaf', img: 'contoh-3.jpg', text: 'Menumbuhkan karakter peduli lingkungan melalui kerja bakti bersama.' },
 ];
 
 export const PENGUMUMAN = [ // CONTOH
@@ -35,10 +36,10 @@ export const PENGUMUMAN = [ // CONTOH
 ];
 
 export const LOMBA = [ // CONTOH
-  { tag: 'Akademik', title: 'Olimpiade Sains Tingkat Kota', icon: '🔬', img: 'contoh-4.jpg', text: 'Ajang adu kemampuan IPA dan Matematika antar sekolah dasar se-Kota Semarang.' },
-  { tag: 'Seni', title: 'Lomba Tari Daerah', icon: '💃', img: 'contoh-5.jpg', text: 'Mengenalkan dan melestarikan budaya lokal melalui seni tari.' },
-  { tag: 'Olahraga', title: 'Turnamen Atletik & Futsal', icon: '⚽', img: 'contoh-6.jpg', text: 'Membina bakat olahraga siswa sejak dini.' },
-  { tag: 'Literasi', title: 'Lomba Cerita & Mendongeng', icon: '📖', img: 'contoh-1.jpg', text: 'Menumbuhkan minat baca dan keberanian berbicara di depan umum.' },
+  { tag: 'Akademik', title: 'Olimpiade Sains Tingkat Kota', icon: 'flask', img: 'contoh-4.jpg', text: 'Ajang adu kemampuan IPA dan Matematika antar sekolah dasar se-Kota Semarang.' },
+  { tag: 'Seni', title: 'Lomba Tari Daerah', icon: 'music', img: 'contoh-5.jpg', text: 'Mengenalkan dan melestarikan budaya lokal melalui seni tari.' },
+  { tag: 'Olahraga', title: 'Turnamen Atletik & Futsal', icon: 'ball', img: 'contoh-6.jpg', text: 'Membina bakat olahraga siswa sejak dini.' },
+  { tag: 'Literasi', title: 'Lomba Cerita & Mendongeng', icon: 'book', img: 'contoh-1.jpg', text: 'Menumbuhkan minat baca dan keberanian berbicara di depan umum.' },
 ];
 
 // foto: taruh di /public/assets/images/galeri/ lalu tulis nama file-nya di "img"

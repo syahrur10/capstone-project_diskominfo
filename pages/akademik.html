@@ -6,24 +6,25 @@
   <title>Akademik | SDN Bandarharjo 02 Semarang</title>
   <meta name="description" content="Kurikulum, mata pelajaran, dan ekstrakurikuler SDN Bandarharjo 02.">
   <link rel="icon" type="image/png" href="/favicon.png">
+  <script>try{if(sessionStorage.getItem('sdn02-pl'))document.documentElement.classList.add('no-pl');else sessionStorage.setItem('sdn02-pl','1')}catch(e){}</script>
   <link rel="stylesheet" href="/assets/css/base.css">
   <link rel="stylesheet" href="/assets/css/layout.css">
   <link rel="stylesheet" href="/assets/css/effects.css">
   <link rel="stylesheet" href="/assets/css/pages.css">
 </head>
 <body data-page="akademik">
-  <div id="preloader"><div class="pl-box"><img src="/assets/images/logo-sdn-bandarharjo-02.png" alt=""><p>Memuat SDN Bandarharjo 02…</p><div class="pl-bar"><i></i></div></div></div>
+  <div id="preloader" aria-hidden="true"><div class="pl-box"><img src="/assets/images/logo-sdn-bandarharjo-02.png" alt=""><p>Memuat SDN Bandarharjo 02</p><div class="pl-bar"><i></i></div></div></div>
   <div id="site-header"></div>
   <main>
-    <section class="page-hero"><div class="hero-bg"></div><div class="hero-overlay"></div><div data-hero-decor="mini"></div>
-      <div class="container"><div class="crumbs">Beranda / Akademik</div><h1 data-split>Akademik</h1><p>Kurikulum dan kegiatan belajar siswa.</p></div></section>
-    <section class="section blobs"><div class="container">
-      <div class="section-head"><span class="eyebrow">Kurikulum</span><h2>Mata Pelajaran</h2><p>Daftar contoh mata pelajaran — sesuaikan dengan kurikulum yang dipakai sekolah.</p></div>
-      <div class="table-wrap reveal"><table><thead><tr><th>Mata Pelajaran</th><th>Jenjang Kelas</th></tr></thead><tbody data-render="kurikulum"></tbody></table></div>
+    <section class="page-hero"><div class="hero-bg"></div><div class="hero-overlay"></div>
+      <div class="container"><div class="crumbs"><a href="/">Beranda</a> / Akademik</div><h1>Akademik</h1><p>Kurikulum dan kegiatan belajar siswa.</p></div></section>
+    <section class="section"><div class="container">
+      <div class="section-head"><h2>Mata pelajaran</h2><p>Daftar contoh mata pelajaran, sesuaikan dengan kurikulum yang dipakai sekolah.</p></div>
+      <div class="table-wrap"><table><thead><tr><th>Mata pelajaran</th><th>Jenjang kelas</th></tr></thead><tbody data-render="kurikulum"></tbody></table></div>
     </div></section>
-    <section class="section alt dots-bg"><div class="container grid grid-2">
-      <div class="feature reveal" data-tilt><div class="icon">🎭</div><h3>Ekstrakurikuler (contoh)</h3><ul class="check-list" style="margin-top:.8rem"><li>Pramuka</li><li>Seni Tari &amp; Musik</li><li>Futsal &amp; Atletik</li><li>Literasi &amp; Mendongeng</li></ul></div>
-      <div class="feature reveal" data-tilt><div class="icon">🧠</div><h3>Latihan Asah Otak</h3><p style="margin:.6rem 0 1rem">Coba Kuis Cerdas: soal yang menyesuaikan kemampuan setiap anak.</p><a class="btn btn-primary" href="/pages/kuis.html">Main Kuis</a></div>
+    <section class="section alt"><div class="container grid grid-2" style="gap:3rem">
+      <div class="feature"><div class="icon" data-icon="music"></div><h3>Ekstrakurikuler (contoh)</h3><ul class="check-list" style="margin-top:.6rem"><li>Pramuka</li><li>Seni tari dan musik</li><li>Futsal dan atletik</li><li>Literasi dan mendongeng</li></ul></div>
+      <div class="feature"><div class="icon" data-icon="brain"></div><h3>Latihan asah otak</h3><p style="margin:.4rem 0 1.2rem">Coba Kuis Cerdas: soal yang menyesuaikan kemampuan setiap anak.</p><a class="btn btn-navy" href="/pages/kuis.html">Main kuis</a></div>
     </div></section>
   </main>
   <footer id="site-footer"></footer>

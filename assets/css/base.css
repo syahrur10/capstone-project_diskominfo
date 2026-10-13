@@ -1,49 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&display=swap');
 
-/* base.css — variabel warna (dari logo sekolah), tipografi, reset */
+/* base.css — token desain (warna dari logo sekolah), tipografi, reset, tombol */
 :root {
-  --navy: #12306b; --navy-deep: #0b1f4a; --blue: #1b4a9c;
-  --sun: #f7b500; --orange: #f28500; --red: #d7263d; --green: #22b573; --pink: #ff6fa5;
-  --cream: #fff9eb; --sky: #e8f1ff; --ink: #1b2437; --muted: #5b6579; --white: #fff;
+  --navy: #12306b; --navy-deep: #0a1b3f; --blue: #1b4a9c;
+  --sun: #f7b500; --gold: #f2b01e; --orange: #f28500; --red: #d7263d; --green: #22b573; --pink: #ff6fa5;
+  --cream: #fff9eb; --sky: #e8f1ff; --ink: #17203a; --muted: #566078; --line: #e3e8f1; --paper: #f4f6fa; --white: #fff;
 
-  --font-body: 'Nunito', system-ui, sans-serif;
-  --font-head: 'Fredoka', 'Nunito', sans-serif;
-  --radius: 18px;
-  --shadow: 0 20px 40px rgba(18, 48, 107, 0.09);
-  --shadow-lg: 0 30px 60px rgba(18, 48, 107, 0.18);
-  --ease: all 0.3s ease;
-  --section-pad: 5.5rem;
-  --container: 1200px;
-  --header-h: 76px;
+  --font-body: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-head: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(10, 27, 63, .06), 0 10px 28px rgba(10, 27, 63, .07);
+  --shadow-lg: 0 24px 48px rgba(10, 27, 63, .16);
+  --ease: all .25s ease;
+  --section-pad: 5rem;
+  --container: 1180px;
+  --header-h: 72px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--font-body); color: var(--ink); background: var(--cream); line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body { font-family: var(--font-body); color: var(--ink); background: #fff; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; transition: var(--ease); }
 ul { list-style: none; }
-h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; color: var(--navy); font-weight: 600; }
-h1 { font-size: clamp(2.4rem, 5.5vw, 4.2rem); }
-h2 { font-size: clamp(1.8rem, 3.4vw, 2.7rem); }
-h3 { font-size: 1.3rem; }
+h1, h2, h4 { font-family: var(--font-head); line-height: 1.12; color: var(--navy); font-weight: 600; letter-spacing: -.01em; }
+h3 { font-family: var(--font-body); line-height: 1.3; color: var(--navy); font-weight: 700; font-size: 1.1rem; }
+h1 { font-size: clamp(2.3rem, 4.8vw, 3.7rem); }
+h2 { font-size: clamp(1.75rem, 3vw, 2.4rem); }
 p { color: var(--muted); }
+.ic { flex: none; }
 .container { width: min(100% - 2.5rem, var(--container)); margin-inline: auto; }
-.section { padding-block: var(--section-pad); position: relative; overflow: hidden; }
-.section.alt { background: var(--white); }
-.eyebrow { display: inline-block; font-weight: 800; font-size: .82rem; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-bottom: .6rem; }
-.eyebrow::before { content: '✦ '; }
-.section-head { max-width: 680px; margin-bottom: 3rem; position: relative; z-index: 1; }
+.section { padding-block: var(--section-pad); position: relative; }
+.section.alt { background: var(--paper); }
+.section-head { max-width: 640px; margin-bottom: 2.6rem; }
 .section-head.center { margin-inline: auto; text-align: center; }
 .section-head p { margin-top: .7rem; }
-.hl { background: linear-gradient(transparent 62%, rgba(247,181,0,.55) 62%); padding: 0 .15em; }
+.section-head.row { max-width: none; display: flex; justify-content: space-between; align-items: flex-end; gap: 1.5rem; flex-wrap: wrap; }
+.link-arrow { display: inline-flex; align-items: center; gap: .45rem; font-weight: 700; color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 2px; }
+.link-arrow:hover { gap: .8rem; }
 
-.btn { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: .5rem; padding: .95rem 1.8rem; border-radius: 14px; font-weight: 800; border: 2px solid transparent; cursor: pointer; font-family: inherit; font-size: 1rem; transition: var(--ease); }
-.btn-primary { background: var(--sun); color: var(--navy-deep); box-shadow: 0 8px 0 #c98f00; }
-.btn-primary:hover { background: #ffc61f; transform: translateY(3px); box-shadow: 0 5px 0 #c98f00; }
-.btn-primary:active { transform: translateY(8px); box-shadow: 0 0 0 #c98f00; }
-.btn-ghost { border-color: rgba(255,255,255,.8); color: #fff; }
-.btn-ghost:hover { background: #fff; color: var(--navy); }
-.btn-navy { background: var(--navy); color: #fff; box-shadow: 0 8px 0 var(--navy-deep); }
-.btn-navy:hover { transform: translateY(3px); box-shadow: 0 5px 0 var(--navy-deep); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .85rem 1.6rem; border-radius: 8px; font-weight: 700; border: 2px solid transparent; cursor: pointer; font-family: inherit; font-size: .98rem; transition: var(--ease); }
+.btn-primary { background: var(--gold); color: var(--navy-deep); }
+.btn-primary:hover { background: #ffc43a; transform: translateY(-1px); box-shadow: 0 8px 18px rgba(242, 176, 30, .35); }
+.btn-ghost, .btn-outline { border-color: rgba(255, 255, 255, .55); color: #fff; }
+.btn-ghost:hover, .btn-outline:hover { background: #fff; color: var(--navy); border-color: #fff; }
+.btn-navy { background: var(--navy); color: #fff; }
+.btn-navy:hover { background: var(--blue); transform: translateY(-1px); box-shadow: 0 8px 18px rgba(18, 48, 107, .28); }
 :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
-html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor label, html.has-cursor select { cursor: none; }
