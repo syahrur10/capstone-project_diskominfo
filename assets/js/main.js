@@ -85,6 +85,7 @@ if (hero) {
   show(0); play();
 }
 
+<<<<<<< HEAD
 
 /* Pengumuman setahun penuh, dibagi per bulan */
 const ann = $('#ann');
@@ -120,6 +121,8 @@ if (ann) {
   draw();
 }
 
+=======
+>>>>>>> ddc1d152531ffbab6cd1e00b968bcfe678408cab
 /* Galeri: filter + lightbox */
 const gal = $('#gallery');
 if (gal) {
