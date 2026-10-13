@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a2a0a"/><stop offset="1" stop-color="#8a5a1c"/></linearGradient></defs>
+<rect width="800" height="1000" fill="url(#g)"/>
+<g fill="#ffd95a" opacity=".18"><circle cx="720" cy="120" r="220"/><circle cx="60" cy="900" r="260"/></g>
+<rect x="40" y="40" width="720" height="920" rx="24" fill="none" stroke="#ffd95a" stroke-width="6" stroke-dasharray="4 14" stroke-linecap="round"/>
+<text x="400" y="170" font-family="Georgia,serif" font-size="36" fill="#fff" text-anchor="middle" letter-spacing="6">SDN BANDARHARJO 02</text>
+<text x="400" y="400" font-family="Georgia,serif" font-size="96" font-weight="700" fill="#fff" text-anchor="middle">HARI</text>
+<text x="400" y="500" font-family="Georgia,serif" font-size="96" font-weight="700" fill="#ffd95a" text-anchor="middle">PRAMUKA</text>
+<rect x="250" y="560" width="300" height="8" rx="4" fill="#ffd95a"/>
+<text x="400" y="650" font-family="sans-serif" font-size="30" fill="#fff" text-anchor="middle">Contoh flyer (dummy)</text>
+<text x="400" y="700" font-family="sans-serif" font-size="26" fill="#fff" opacity=".85" text-anchor="middle">Ganti dengan flyer asli sekolah</text>
+<text x="400" y="900" font-family="sans-serif" font-size="24" fill="#fff" opacity=".8" text-anchor="middle">Semarang Utara, Kota Semarang</text>
+</svg>

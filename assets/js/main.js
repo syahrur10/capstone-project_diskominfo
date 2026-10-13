@@ -1,6 +1,6 @@
 /** main.js — menu mobile, renderer data, galeri, form WhatsApp. */
 import { renderChrome } from './components.js';
-import { SITE, STATS, BERITA, PENGUMUMAN, LOMBA, GALERI, KURIKULUM } from './data/content.js';
+import { SITE, STATS, BERITA, PENGUMUMAN, LOMBA, GALERI, KURIKULUM, SLIDER } from './data/content.js';
 import { icon } from './icons.js';
 import { art } from './chars.js';
 import * as fx from './effects.js';
@@ -39,6 +39,40 @@ document.querySelectorAll('[data-render]').forEach((el) => { const r = renderers
 document.querySelectorAll('[data-icon]').forEach((el) => { el.insertAdjacentHTML('afterbegin', icon(el.dataset.icon, +el.dataset.size || 24)); });
 document.querySelectorAll('[data-art]').forEach((el) => { el.innerHTML = art(el.dataset.art, +el.dataset.size || 64); });
 document.querySelectorAll('[data-site]').forEach((el) => { el.textContent = SITE[el.dataset.site]; });
+
+/* Slider beranda: slide default + flyer event dari SLIDER (content.js) */
+const hero = $('#hero-slides');
+if (hero) {
+  const today = new Date().toISOString().slice(0, 10);
+  const flyers = SLIDER.filter((x) => x.type === 'flyer' && x.aktif !== false && (!x.mulai || today >= x.mulai) && (!x.selesai || today <= x.selesai));
+  const def = SLIDER.find((x) => x.type === 'default');
+  if (def && def.img) hero.querySelector('.slide-default .hero-bg').style.backgroundImage = `url('/assets/images/slider/${def.img}')`;
+  flyers.forEach((f) => {
+    const src = `/assets/images/slider/${f.img}`;
+    const pic = `<img class="flyer-img" src="${src}" alt="${f.alt || 'Flyer kegiatan sekolah'}">`;
+    hero.insertAdjacentHTML('beforeend', `<div class="slide slide-flyer" style="--bg:url('${src}')"><div class="flyer-blur"></div>${f.href ? `<a href="${f.href}">${pic}</a>` : pic}</div>`);
+  });
+  const slides = [...hero.querySelectorAll('.slide')];
+  const sec = $('#hero'), dots = $('.hs-dots'), prev = $('.hs-prev'), next = $('.hs-next');
+  let cur = 0, timer;
+  const show = (i) => { cur = (i + slides.length) % slides.length;
+    slides.forEach((s, n) => { s.classList.toggle('active', n === cur); s.setAttribute('aria-hidden', n !== cur); });
+    dots.querySelectorAll('button').forEach((d, n) => d.setAttribute('aria-selected', n === cur)); };
+  const play = () => { clearInterval(timer); if (slides.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(() => show(cur + 1), 6000); };
+  if (slides.length > 1) {
+    dots.innerHTML = slides.map((_, n) => `<button type="button" role="tab" aria-label="Slide ${n + 1}"></button>`).join('');
+    [dots, prev, next].forEach((el) => (el.hidden = false));
+    dots.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) { show([...dots.children].indexOf(b)); play(); } });
+    prev.addEventListener('click', () => { show(cur - 1); play(); });
+    next.addEventListener('click', () => { show(cur + 1); play(); });
+    sec.addEventListener('mouseenter', () => clearInterval(timer)); sec.addEventListener('mouseleave', play);
+    let x0 = null;
+    sec.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    sec.addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null; if (Math.abs(dx) > 50) { show(cur + (dx < 0 ? 1 : -1)); play(); } });
+    document.addEventListener('visibilitychange', () => (document.hidden ? clearInterval(timer) : play()));
+  }
+  show(0); play();
+}
 
 /* Galeri: filter + lightbox */
 const gal = $('#gallery');

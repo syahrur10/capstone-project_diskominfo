@@ -17,19 +17,27 @@
   <div id="preloader" aria-hidden="true"><div class="pl-box"><img src="/assets/images/logo-sdn-bandarharjo-02.png" alt=""><p>Memuat SDN Bandarharjo 02</p><div class="pl-bar"><i></i></div></div></div>
   <div id="site-header"></div>
   <main>
-    <section class="hero" id="hero">
-      <div class="hero-bg"></div><div class="hero-overlay"></div>
-      <div class="container hero-grid">
-        <div>
-          <h1>Sekolah dasar yang menumbuhkan karakter, kecerdasan, dan prestasi</h1>
-          <p>SDN Bandarharjo 02 Semarang melayani pendidikan dasar di Semarang Utara dengan pembelajaran yang aktif, santun, dan peduli lingkungan.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="/pages/profil.html">Kenali sekolah kami</a>
-            <a class="btn btn-ghost" href="/pages/kuis.html">Coba Kuis Cerdas</a>
+    <section class="hero" id="hero" aria-roledescription="carousel" aria-label="Sorotan sekolah">
+      <div class="hero-slides" id="hero-slides">
+        <!-- Slide default (statis agar tetap tampil tanpa JavaScript). Slide flyer ditambahkan dari SLIDER di content.js -->
+        <div class="slide slide-default active" data-slide="default">
+          <div class="hero-bg"></div><div class="hero-overlay"></div>
+          <div class="container hero-grid">
+            <div>
+              <h1>Sekolah dasar yang menumbuhkan karakter, kecerdasan, dan prestasi</h1>
+              <p>SDN Bandarharjo 02 Semarang melayani pendidikan dasar di Semarang Utara dengan pembelajaran yang aktif, santun, dan peduli lingkungan.</p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="/pages/profil.html">Kenali sekolah kami</a>
+                <a class="btn btn-ghost" href="/pages/kuis.html">Coba Kuis Cerdas</a>
+              </div>
+            </div>
+            <div class="hero-logo"><div class="logo-card"><img src="/assets/images/logo-sdn-bandarharjo-02.png" alt="Logo SDN Bandarharjo 02 Semarang"><b>SDN Bandarharjo 02</b><span>Kecamatan Semarang Utara, Kota Semarang</span></div></div>
           </div>
         </div>
-        <div class="hero-logo"><div class="logo-card"><img src="/assets/images/logo-sdn-bandarharjo-02.png" alt="Logo SDN Bandarharjo 02 Semarang"><b>SDN Bandarharjo 02</b><span>Kecamatan Semarang Utara, Kota Semarang</span></div></div>
       </div>
+      <button class="hs-nav hs-prev" type="button" aria-label="Slide sebelumnya" hidden>&#8249;</button>
+      <button class="hs-nav hs-next" type="button" aria-label="Slide berikutnya" hidden>&#8250;</button>
+      <div class="hs-dots" role="tablist" aria-label="Pilih slide" hidden></div>
     </section>
 
     <div class="container"><div class="stats" data-render="stats"></div></div>

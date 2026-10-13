@@ -52,11 +52,25 @@ export const GALERI = [ // CONTOH
   { cat: 'Prestasi', title: 'Juara Lomba Seni', img: 'contoh-6.jpg' },
 ];
 
+/**
+ * SLIDER — slide di bagian atas Beranda. Urutan array = urutan tampil.
+ * - type 'default' : gambar latar + judul/teks sambutan (hanya pakai 1 slide ini).
+ * - type 'flyer'   : tampilkan flyer/poster utuh (event: Hari Batik, Pramuka, dll).
+ * Cara ganti: taruh gambar di /public/assets/images/slider/ (jpg/png/webp/svg),
+ * lalu tambah/hapus/ubah baris di bawah. Slide dengan "aktif: false" disembunyikan.
+ * Opsional: "href" (flyer bisa diklik), "mulai"/"selesai" (YYYY-MM-DD) agar tampil otomatis
+ * hanya pada rentang tanggal tertentu.
+ */
+export const SLIDER = [ // CONTOH — semua gambar masih dummy
+  { type: 'default', img: 'sekolah-dummy.svg', alt: 'Gedung SDN Bandarharjo 02 (gambar contoh)' },
+  { type: 'flyer', img: 'flyer-hari-batik.svg', alt: 'Flyer Hari Batik Nasional', href: '/pages/pengumuman.html' },
+  { type: 'flyer', img: 'flyer-pramuka.svg', alt: 'Flyer Hari Pramuka' },
+  { type: 'flyer', img: 'flyer-kemerdekaan.svg', alt: 'Flyer HUT Kemerdekaan RI', aktif: false },
+];
+
 export const TAUTAN = [
   { label: 'Dinas Pendidikan Kota Semarang', href: 'https://dikdas.semarangkota.go.id' },
-  { label: 'Kemendikdasmen', href: 'https://www.kemdikbud.go.id' },
-  { label: 'Rapor Pendidikan', href: 'https://raporpendidikan.kemdikbud.go.id' },
-  { label: 'Website Lama Sekolah', href: SITE.oldSite },
+  { label: 'Sang Juara (Kejuaraan Siswa)', href: 'https://sangjuara.semarangkota.go.id/kejuaraan_siswa?tingkat=&sekolah=327&q=' },
 ];
 
 export const KURIKULUM = [ // CONTOH
