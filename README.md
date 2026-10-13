@@ -138,6 +138,7 @@ Semua isi website ada di **`assets/js/data/content.js`**:
 | Berita / Pengumuman / Lomba | `BERITA` / `PENGUMUMAN` / `LOMBA` |
 | Foto galeri | `GALERI` |
 | Mata pelajaran | `KURIKULUM` |
+| Slider beranda (flyer event) | `SLIDER` — gambar di `public/assets/images/slider/` |
 | Menu Tautan | `TAUTAN` |
 
 **Mengganti foto:** timpa file di `public/assets/images/` (`hero-bg.jpg`, `page-hero.jpg`, `sambutan.jpg`) dan `public/assets/images/galeri/` dengan nama yang sama, atau ubah nama file di `content.js`.
