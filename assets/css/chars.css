@@ -1,0 +1,23 @@
+/* chars.css — animasi karakter SVG (dipakai di halaman kuis & promo beranda) */
+.art { display: inline-block; overflow: visible; vertical-align: middle; }
+.art.inline { margin: 0 .08em; vertical-align: -.22em; }
+.art .eyes { transform-box: fill-box; transform-origin: center; animation: artBlink 5s infinite; }
+@keyframes artBlink { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
+
+/* Pak Hoot */
+.art-owl .ow-lid { transform-box: fill-box; transform-origin: center top; transform: scaleY(0); animation: owBlink 4.6s infinite; }
+@keyframes owBlink { 0%, 92%, 100% { transform: scaleY(0); } 95% { transform: scaleY(1); } }
+.art-owl .ow-wing { transform-box: fill-box; transform-origin: 50% 20%; }
+.art-owl .ow-wing.l { animation: wingL 3.6s ease-in-out infinite; } .art-owl .ow-wing.r { animation: wingR 3.6s ease-in-out infinite; }
+@keyframes wingL { 0%, 100% { transform: rotate(4deg); } 50% { transform: rotate(-8deg); } }
+@keyframes wingR { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(8deg); } }
+.art-owl .ow-sweat { display: none; }
+.owl-face.cheer .ow-wing.l { animation: cheerL .35s ease-in-out 6; } .owl-face.cheer .ow-wing.r { animation: cheerR .35s ease-in-out 6; }
+@keyframes cheerL { 0%, 100% { transform: rotate(-10deg); } 50% { transform: rotate(-70deg); } }
+@keyframes cheerR { 0%, 100% { transform: rotate(10deg); } 50% { transform: rotate(70deg); } }
+.owl-face.oops .ow-sweat { display: block; animation: sweat 1.2s ease-in 2; }
+@keyframes sweat { from { transform: translateY(-4px); opacity: 0; } 30% { opacity: 1; } to { transform: translateY(8px); opacity: 0; } }
+
+.art-rocket .flame { transform-box: fill-box; transform-origin: top center; animation: flame .18s ease-in-out infinite alternate; }
+@keyframes flame { from { transform: scaleY(.8); } to { transform: scaleY(1.2); } }
+.art-star { animation: twinkle 2.6s ease-in-out infinite; } @keyframes twinkle { 50% { transform: scale(1.08) rotate(5deg); } }

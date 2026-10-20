@@ -1,0 +1,535 @@
+
+/* =========================================
+   KALENDER PENGUMUMAN SDN BANDARHARJO 02
+   ========================================= */
+
+.pengumuman-calendar {
+  padding: 42px 0 50px;
+  background: #fff;
+  min-height: 400px;
+}
+
+.pengumuman-calendar .kalender-layout {
+  width: min(100% - 40px, 1120px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(290px, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+/* KARTU UTAMA */
+
+.kalender-card,
+.agenda-card {
+  min-width: 0;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #dce6f7;
+  border-radius: 13px;
+  box-shadow: 0 8px 25px rgba(11, 29, 66, 0.05);
+}
+
+/* NAVIGASI BULAN */
+
+.kalender-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.kalender-navigasi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.kalender-navigasi h2 {
+  min-width: 155px;
+  margin: 0;
+  text-align: center;
+  color: #0b1d42;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.kalender-navigasi button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #dce6f7;
+  border-radius: 50%;
+  background: #f6f9ff;
+  color: #173a78;
+  font-size: 25px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.kalender-navigasi button:hover {
+  background: #173a78;
+  color: #fff;
+}
+
+/* TOMBOL BULANAN DAN DAFTAR */
+
+.kalender-mode {
+  display: flex;
+  gap: 3px;
+  padding: 4px;
+  border-radius: 25px;
+  background: #f0f4fc;
+}
+
+.mode-btn {
+  padding: 9px 17px;
+  border: none;
+  border-radius: 22px;
+  background: transparent;
+  color: #173a78;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.mode-btn:hover {
+  background: #e1eaff;
+}
+
+.mode-btn.aktif {
+  background: #173a78;
+  color: #fff;
+  box-shadow: 0 3px 8px rgba(23, 58, 120, 0.18);
+}
+
+/* NAMA HARI */
+
+.kalender-hari,
+.kalender-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.kalender-hari {
+  overflow: hidden;
+  border: 1px solid #dce6f7;
+  border-radius: 9px 9px 0 0;
+  background: #f3f7fd;
+}
+
+.kalender-hari span {
+  padding: 13px 2px;
+  text-align: center;
+  color: #173a78;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.kalender-hari span:last-child {
+  color: #ef4444;
+}
+
+/* KOTAK TANGGAL */
+
+.kalender-grid {
+  border-left: 1px solid #dce6f7;
+  border-top: 1px solid #dce6f7;
+}
+
+.tanggal-cell {
+  min-width: 0;
+  min-height: 88px;
+  padding: 8px 6px;
+  overflow: hidden;
+  border-right: 1px solid #dce6f7;
+  border-bottom: 1px solid #dce6f7;
+  background: #fff;
+  transition: background 0.2s ease;
+}
+
+.tanggal-cell:hover {
+  background: #f8faff;
+}
+
+.tanggal-cell.tanggal-luar {
+  background: #fafbfd;
+}
+
+.nomor-tanggal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  margin-bottom: 5px;
+  border-radius: 50%;
+  color: #173a78;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tanggal-luar .nomor-tanggal {
+  color: #a6b0c0;
+}
+
+.tanggal-minggu .nomor-tanggal {
+  color: #ef4444;
+}
+
+.nomor-tanggal.hari-ini {
+  background: #173a78;
+  color: #fff;
+}
+
+/* LABEL KEGIATAN DI DALAM TANGGAL */
+
+.event-chip {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 5px 6px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 7px;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.event-chip:hover {
+  transform: translateY(-1px);
+}
+
+.event-chip.akademik {
+  background: #e5efff;
+  color: #1764c0;
+}
+
+.event-chip.libur {
+  background: #ffe5e5;
+  color: #d93636;
+}
+
+.event-chip.kegiatan {
+  background: #fff2cf;
+  color: #a86b00;
+}
+
+/* PANEL AGENDA MENDATANG */
+
+.agenda-card h2 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 18px;
+  color: #0b1d42;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.agenda-icon {
+  display: flex;
+  flex: 0 0 40px;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffb000;
+  color: #173a78;
+  font-size: 21px;
+}
+
+/* KARTU AGENDA */
+
+.agenda-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin-bottom: 12px;
+  padding: 13px;
+  border: 1px solid #dce6f7;
+  border-radius: 12px;
+  background: #fff;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.agenda-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 16px rgba(11, 29, 66, 0.07);
+}
+
+.agenda-tanggal {
+  display: flex;
+  flex: 0 0 58px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 66px;
+  border-radius: 10px;
+  background: #173a78;
+  color: #fff;
+}
+
+.agenda-tanggal strong {
+  font-size: 25px;
+  line-height: 1.2;
+}
+
+.agenda-tanggal span {
+  margin-top: 3px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.agenda-tanggal.libur {
+  background: #ff6268;
+}
+
+.agenda-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.agenda-info h3 {
+  margin: 2px 0 6px;
+  color: #173a78;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.agenda-info p {
+  margin: 0;
+  color: #687d9f;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.agenda-kategori {
+  display: inline-block;
+  margin-top: 7px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.agenda-kategori.akademik {
+  color: #1764c0;
+}
+
+.agenda-kategori.libur {
+  color: #d93636;
+}
+
+.agenda-kategori.kegiatan {
+  color: #a86b00;
+}
+
+/* LEGENDA WARNA */
+
+.kalender-legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #e2eaf7;
+}
+
+.kalender-legenda span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #173a78;
+  font-size: 11px;
+}
+
+.titik {
+  display: inline-block;
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.titik.akademik {
+  background: #173a78;
+}
+
+.titik.libur {
+  background: #ff6268;
+}
+
+.titik.kegiatan {
+  background: #ffb000;
+}
+
+/* TAMPILAN DAFTAR */
+
+.daftar-event {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 14px;
+  border: 1px solid #dce6f7;
+  border-left: 4px solid #173a78;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.daftar-event.libur {
+  border-left-color: #ff6268;
+}
+
+.daftar-event.kegiatan {
+  border-left-color: #ffb000;
+}
+
+.daftar-event time {
+  min-width: 75px;
+  color: #173a78;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.daftar-event h3 {
+  margin: 0 0 5px;
+  color: #173a78;
+  font-size: 14px;
+}
+
+.daftar-event p {
+  margin: 0;
+  color: #687d9f;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* JIKA AGENDA KOSONG */
+
+.kalender-kosong {
+  padding: 24px 12px;
+  color: #687d9f;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* ATRIBUT HIDDEN */
+
+[hidden] {
+  display: none !important;
+}
+
+/* RESPONSIVE TABLET */
+
+@media (max-width: 850px) {
+  .pengumuman-calendar .kalender-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .agenda-card {
+    order: 2;
+  }
+}
+
+/* RESPONSIVE HP */
+
+@media (max-width: 520px) {
+  .pengumuman-calendar {
+    padding: 25px 0;
+  }
+
+  .pengumuman-calendar .kalender-layout {
+    width: calc(100% - 24px);
+    gap: 14px;
+  }
+
+  .kalender-card,
+  .agenda-card {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .kalender-toolbar {
+    justify-content: center;
+  }
+
+  .kalender-navigasi {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .kalender-navigasi h2 {
+    min-width: 0;
+    flex: 1;
+    font-size: 17px;
+  }
+
+  .kalender-mode {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .mode-btn {
+    flex: 1;
+    padding: 9px 12px;
+  }
+
+  .kalender-hari span {
+    padding: 10px 0;
+    font-size: 10px;
+  }
+
+  .tanggal-cell {
+    min-height: 65px;
+    padding: 4px 2px;
+  }
+
+  .nomor-tanggal {
+    width: 21px;
+    height: 21px;
+    font-size: 10px;
+  }
+
+  .event-chip {
+    padding: 4px 2px;
+    font-size: 8px;
+  }
+
+  .kalender-legenda {
+    gap: 10px;
+  }
+
+  .kalender-legenda span {
+    font-size: 10px;
+  }
+
+  .agenda-card h2 {
+    font-size: 18px;
+  }
+
+  .agenda-item {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .agenda-tanggal {
+    flex-basis: 52px;
+    min-height: 60px;
+  }
+
+  .agenda-tanggal strong {
+    font-size: 22px;
+  }
+}
