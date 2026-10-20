@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kontak & Pengaduan | SDN Bandarharjo 02 Semarang</title>
-    <meta name="description" content="Kontak, lokasi, dan kotak pengaduan SDN Bandarharjo 02 Semarang." />
+    <meta
+      name="description"
+      content="Kontak, lokasi, dan kotak pengaduan SDN Bandarharjo 02 Semarang."
+    />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" href="/assets/css/base.css" />
     <link rel="stylesheet" href="/assets/css/layout.css" />
@@ -36,31 +39,136 @@
         <div class="container contact-grid">
           <div class="reveal reveal-left">
             <span class="eyebrow">Kontak</span>
-            <h2>Kunjungi &amp; Hubungi Kami</h2>
+            <h2>Kunjungi dan hubungi kami</h2>
             <ul class="contact-list" style="margin-top: 1.5rem">
-              <li><span class="ci">📍</span><div><b>Alamat</b><p>Jl. Lodan Raya No. 1, Kel. Bandarharjo, Kec. Semarang Utara, Kota Semarang 50175</p></div></li>
-              <li><span class="ci">☎</span><div><b>Telepon</b><p><a href="tel:0243563228">0243563228</a></p></div></li>
-              <li><span class="ci">✉</span><div><b>Email</b><p><a href="mailto:sdnbandarharjo02semarang@gmail.com">sdnbandarharjo02semarang@gmail.com</a></p></div></li>
+              <li>
+                <span class="ci"
+                  ><svg
+                    class="ic"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"
+                    />
+                    <circle cx="12" cy="10" r="2.5" /></svg
+                ></span>
+                <div>
+                  <b>Alamat</b>
+                  <p>
+                    Jl. Lodan Raya No. 1, Kel. Bandarharjo, Kec. Semarang Utara,
+                    Kota Semarang 50175
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span class="ci"
+                  ><svg
+                    class="ic"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"
+                    /></svg
+                ></span>
+                <div>
+                  <b>Telepon</b>
+                  <p><a href="tel:0243563228">0243563228</a></p>
+                </div>
+              </li>
+              <li>
+                <span class="ci"
+                  ><svg
+                    class="ic"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <path d="m3 7 9 6 9-6" /></svg
+                ></span>
+                <div>
+                  <b>Email</b>
+                  <p>
+                    <a href="mailto:sdnbandarharjo02semarang@gmail.com"
+                      >sdnbandarharjo02semarang@gmail.com</a
+                    >
+                  </p>
+                </div>
+              </li>
             </ul>
-            <iframe class="map" title="Peta SDN Bandarharjo 02" loading="lazy" src="https://www.google.com/maps?q=SDN+Bandarharjo+02+Semarang&output=embed"></iframe>
+            <iframe
+              class="map"
+              title="Peta SDN Bandarharjo 02"
+              loading="lazy"
+              src="https://www.google.com/maps?q=SDN+Bandarharjo+02+Semarang&output=embed"
+            ></iframe>
           </div>
           <div id="pengaduan" class="reveal reveal-right">
             <span class="eyebrow">Pengaduan &amp; Umpan Balik</span>
-            <h2>Kirim Pesan</h2>
+            <h2>Kirim pesan</h2>
             <form class="form" id="email-form" style="margin-top: 1.5rem">
-              <label>Nama<input name="nama" required placeholder="Nama lengkap" /></label>
-              <label>No. HP (opsional)<input name="hp" type="tel" placeholder="08xxxxxxxxxx" /></label>
-              <label>Jenis Pesan
+              <label
+                >Nama<input name="nama" required placeholder="Nama lengkap"
+              /></label>
+              <label
+                >No. HP (opsional)<input
+                  name="hp"
+                  type="tel"
+                  placeholder="08xxxxxxxxxx"
+              /></label>
+              <label
+                >Jenis pesan
                 <select name="jenis">
                   <option>Pengaduan</option>
                   <option>Saran / Umpan Balik</option>
                   <option>Pertanyaan</option>
                 </select>
               </label>
-              <label>Pesan<textarea name="pesan" required placeholder="Tulis pesan Anda..."></textarea></label>
-              <input type="text" name="_honey" style="display: none" tabindex="-1" autocomplete="off" />
-              <button class="btn btn-navy" type="submit">Kirim via Email</button>
-              <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+              <label
+                >Pesan<textarea
+                  name="pesan"
+                  required
+                  placeholder="Tulis pesan Anda"
+                ></textarea>
+              </label>
+              <input
+                type="text"
+                name="_honey"
+                style="display: none"
+                tabindex="-1"
+                autocomplete="off"
+              />
+              <button class="btn btn-navy" type="submit">
+                Kirim via Email
+              </button>
+              <p
+                id="form-status"
+                class="form-status"
+                role="status"
+                aria-live="polite"
+              ></p>
             </form>
           </div>
         </div>
@@ -68,5 +176,6 @@
     </main>
     <footer id="site-footer"></footer>
     <script type="module" src="/assets/js/main.js"></script>
+    <script type="module" src="/assets/js/email-form.js"></script>
   </body>
 </html>
