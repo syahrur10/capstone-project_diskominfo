@@ -8,7 +8,6 @@ export const SITE = {
   address: 'Jl. Lodan Raya No. 1, Kel. Bandarharjo, Kec. Semarang Utara, Kota Semarang 50175',
   email: 'sdnbandarharjo02semarang@gmail.com',
   phone: '0243563228',
-  wa: '6281234567890', // TODO: ganti nomor WhatsApp sekolah (format 62xxx tanpa +)
   oldSite: 'https://sdnbandarharjo02.dikdas.semarangkota.go.id',
   social: { facebook: '#', twitter: '#', youtube: '#', instagram: '#' }, // TODO isi link asli
 };

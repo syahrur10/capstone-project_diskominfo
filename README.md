@@ -62,7 +62,7 @@ Proyek ini adalah **peningkatan (upgrade) website SDN Bandarharjo 02 Semarang**,
 | **Galeri** | Foto kegiatan dengan filter kategori + lightbox |
 | **Kuis Cerdas** | Kuis asah otak adaptif (lihat bagian di bawah) |
 | **Pengumuman** | Daftar pengumuman resmi |
-| **Kontak & Pengaduan** | Alamat, peta, formulir yang terkirim lewat WhatsApp |
+| **Kontak & Pengaduan** | Alamat, peta, formulir yang terkirim lewat Email |
 | **Tautan** | Dropdown ke Dinas Pendidikan, Kemendikdasmen, Rapor Pendidikan, dll. |
 
 ### Animasi & Interaksi
@@ -134,7 +134,7 @@ Semua isi website ada di **`assets/js/data/content.js`**:
 
 | Yang ingin diubah | Variabel |
 |---|---|
-| Alamat, email, telepon, nomor WhatsApp, sosial media | `SITE` |
+| Alamat, email, telepon, sosial media | `SITE` |
 | Statistik beranda | `STATS` |
 | Berita / Pengumuman / Lomba | `BERITA` / `PENGUMUMAN` / `LOMBA` |
 | Foto galeri | `GALERI` |
@@ -153,7 +153,7 @@ Semua isi website ada di **`assets/js/data/content.js`**:
 
 Proyek ini masih dalam tahap pengembangan. Beberapa hal **masih placeholder** dan harus diganti data asli sebelum rilis:
 
-- [ ] Nomor WhatsApp (formulir pengaduan) dan link sosial media
+- [ ] Email sekolah (penerima formulir pengaduan; aktivasi FormSubmit saat pertama kali) dan link sosial media
 - [ ] Data bertanda **"CONTOH"**: jumlah siswa/guru, akreditasi, visi-misi, berita, pengumuman, nama kepala sekolah
 - [ ] Foto latar & galeri (saat ini gambar ilustrasi dummy)
 - [ ] Sejarah singkat sekolah dan daftar ekstrakurikuler

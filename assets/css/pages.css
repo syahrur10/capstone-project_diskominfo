@@ -112,3 +112,7 @@ tr:hover td { background: var(--cream); }
   :root { --section-pad: 3.8rem; }
   .quiz-promo { padding: 2.2rem; text-align: center; } .quiz-promo p { margin-inline: auto; }
 }
+.form-status { margin: 0; font-weight: 700; font-size: .92rem; }
+.form-status:empty { display: none; }
+.form-status.ok { color: #1a7f37; }
+.form-status.err { color: #b42318; }

@@ -1,28 +1,29 @@
 /** components.js — topbar, header, footer dipakai ulang di semua halaman. */
-import { SITE, TAUTAN } from './data/content.js';
+import { SITE, TAUTAN } from "./data/content.js";
 
 const NAV = [
-  { key: 'home', label: 'Beranda', href: '/' },
-  { key: 'profil', label: 'Profil', href: '/pages/profil.html' },
-  { key: 'akademik', label: 'Akademik', href: '/pages/akademik.html' },
-  { key: 'lomba', label: 'Lomba', href: '/pages/lomba.html' },
-  { key: 'galeri', label: 'Galeri', href: '/pages/galeri.html' },
-  { key: 'kuis', label: '🧠 Kuis Cerdas', href: '/pages/kuis.html' },
-  { key: 'pengumuman', label: 'Pengumuman', href: '/pages/pengumuman.html' },
-  { key: 'tautan', label: 'Tautan', sub: TAUTAN },
-  { key: 'kontak', label: 'Kontak', href: '/pages/kontak.html' },
+  { key: "home", label: "Beranda", href: "/" },
+  { key: "profil", label: "Profil", href: "/pages/profil.html" },
+  { key: "akademik", label: "Akademik", href: "/pages/akademik.html" },
+  { key: "lomba", label: "Lomba", href: "/pages/lomba.html" },
+  { key: "galeri", label: "Galeri", href: "/pages/galeri.html" },
+  { key: "kuis", label: "Kuis Cerdas", href: "/pages/kuis.html" },
+  { key: "pengumuman", label: "Pengumuman", href: "/pages/pengumuman.html" },
+  { key: "tautan", label: "Tautan", sub: TAUTAN },
+  { key: "kontak", label: "Kontak", href: "/pages/kontak.html" },
 ];
 const rt = (t) => `<span class="rt"><span>${t}</span><span>${t}</span></span>`;
 
 export function renderChrome() {
   const page = document.body.dataset.page;
-  const links = NAV.map((n) => n.sub
-    ? `<li class="nav-item"><a href="#" class="nav-link has-sub" aria-haspopup="true">${rt(n.label)}</a>
-        <div class="dropdown">${n.sub.map((s) => `<a href="${s.href}" target="_blank" rel="noopener">${s.label}</a>`).join('')}</div></li>`
-    : `<li class="nav-item"><a href="${n.href}" class="nav-link ${n.key === page ? 'active' : ''}">${rt(n.label)}</a></li>`
-  ).join('');
+  const links = NAV.map((n) =>
+    n.sub
+      ? `<li class="nav-item"><a href="#" class="nav-link has-sub" aria-haspopup="true">${rt(n.label)}</a>
+        <div class="dropdown">${n.sub.map((s) => `<a href="${s.href}" target="_blank" rel="noopener">${s.label}</a>`).join("")}</div></li>`
+      : `<li class="nav-item"><a href="${n.href}" class="nav-link ${n.key === page ? "active" : ""}">${rt(n.label)}</a></li>`,
+  ).join("");
 
-  document.getElementById('site-header').innerHTML = `
+  document.getElementById("site-header").innerHTML = `
     <div class="topbar"><div class="container">
       <div class="topbar-info"><a href="mailto:${SITE.email}">✉ ${SITE.email}</a><a href="tel:${SITE.phone}">☎ ${SITE.phone}</a></div>
       <a href="/pages/kontak.html#pengaduan">Umpan Balik: <u>mengeluh</u></a>
@@ -37,7 +38,7 @@ export function renderChrome() {
     </nav></header>`;
 
   const s = SITE.social;
-  document.getElementById('site-footer').innerHTML = `
+  document.getElementById("site-footer").innerHTML = `
     <svg class="wave-top" viewBox="0 0 1200 70" preserveAspectRatio="none"><path d="M0 35 C200 70 400 0 600 35 C800 70 1000 0 1200 35 V70 H0Z" fill="#fff9eb"/></svg>
     <div class="container footer-grid">
       <div class="footer-brand">
@@ -49,7 +50,9 @@ export function renderChrome() {
         </div>
       </div>
       <div><h4>Menu</h4><ul class="footer-links">
-        ${NAV.filter((n) => n.href).map((n) => `<li><a href="${n.href}">${n.label}</a></li>`).join('')}
+        ${NAV.filter((n) => n.href)
+          .map((n) => `<li><a href="${n.href}">${n.label}</a></li>`)
+          .join("")}
       </ul></div>
       <div><h4>Hubungi Kami</h4><ul class="footer-links">
         <li>✉ <a href="mailto:${SITE.email}">${SITE.email}</a></li>
